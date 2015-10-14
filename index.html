@@ -3,10 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Js Girls - Base application</title>
-
     <link href="styles/vendor/bootstrap.min.css" rel="stylesheet">
+    <style>
+      label { cursor: pointer }
+      .done { text-decoration: line-through; }
+    </style>
   </head>
+  <script id="todo-item" type="text/template">
+    <li>
+      <label>
+        <input type="checkbox" onclick="markAsDone(this)"> TODO_TEXT
+      </label>
+    </li>
+  </script>
   <body>
-    <h1>JS Girls</h1>
+    <div class="container">
+      <h2>My todo list</h2>
+      <ul id="todo-list"></ul>
+      <input id="new-todo" type="text" placeholder="">
+      <button onclick="addTodo()">Add!</button>
+    </div>
+    <script>
+      var todoList = document.querySelector('#todo-list');
+      var template = document.querySelector('#todo-item').innerHTML;
+      var todoItems = ['Buy Milk', 'Buy Pasta', 'Disco Dance'];
+
+      var addTodo = function() {
+        var todoElement = document.querySelector('#new-todo');
+        var text = todoElement.value;
+        todoList.innerHTML += template.replace('TODO_TEXT', text);
+        todoElement.value = '';
+      }
+
+      todoItems.forEach(function(text, i) {
+        todoList.innerHTML += template.replace('TODO_TEXT', text);
+      });
+
+      var markAsDone = function(element) {
+        element.parentNode.classList.toggle('done');
+      }
+    </script>
   </body>
 </html>
