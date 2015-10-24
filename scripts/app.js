@@ -81,4 +81,12 @@ var showItems = function(what) {
   renderList(itemsToShow);
 }
 
+var clearCompleted = function() {
+  todoItems = todoItems.filter(function(item) {
+    return !item['completed'];
+  });
+
+  renderList(todoItems);
+}
+
 renderList(todoItems);
