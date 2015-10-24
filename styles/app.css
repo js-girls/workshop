@@ -8,3 +8,7 @@ body {
   width: 500px;
   margin: 30px auto;
 }
+
+.list-group-item-success span {
+  text-decoration: line-through;
+}

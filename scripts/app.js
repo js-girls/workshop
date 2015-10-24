@@ -1,12 +1,17 @@
 var todoItems = [
-  { text: "Buy pasta",   completed: false },
-  { text: "Buy milk",    completed: true },
+  { text: "Buy pasta",   completed: true },
+  { text: "Buy milk",    completed: false },
   { text: "Disco dance", completed: false }
 ];
 
 var renderItem = function(item, template) {
+  var todoClass = ['list-group-item'];
+
+  if (item['completed']) todoClass.push('list-group-item-success');
+
   return template
-    .replace('_TODO_TEXT_', item['text'])
+    .replace('_TEXT_', item['text'])
+    .replace('_CLASS_', todoClass.join(' '))
     .replace('_CHECKED_', item['completed'] ? 'checked' : '');
 }
 
@@ -22,15 +27,24 @@ var renderList = function(items) {
 }
 
 var toggleStatus = function(event) {
-  console.log(event);
+  var text = event.target.parentNode.querySelector('span').innerHTML;
 
-  // renderList(todoItems);
+  todoItems = todoItems.map(function(item) {
+    if (item['text'] == text) item['completed'] = !item['completed'];
+    return item;
+  });
+
+  renderList(todoItems);
 }
 
 var removeItem = function(event) {
-  console.log(event);
+  var text = event.target.parentNode.querySelector('span').innerHTML;
 
-  // renderList(todoItems);
+  todoItems = todoItems.filter(function(item) {
+    if (item['text'] != text) return true;
+  });
+
+  renderList(todoItems);
 }
 
 var createNew = function(event) {
