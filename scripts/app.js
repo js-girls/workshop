@@ -59,4 +59,26 @@ var createNew = function(event) {
   renderList(todoItems);
 }
 
+var showItems = function(what) {
+  var itemsToShow = [];
+
+  switch(what) {
+    case 'completed':
+      itemsToShow = todoItems.filter(function(item) {
+        return item['completed'];
+      });
+      break;
+    case 'active':
+      itemsToShow = todoItems.filter(function(item) {
+        return !item['completed'];
+      });
+      break;
+    default:
+      itemsToShow = todoItems;
+      break;
+  }
+
+  renderList(itemsToShow);
+}
+
 renderList(todoItems);
