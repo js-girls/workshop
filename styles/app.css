@@ -1,0 +1,10 @@
+@import url('vendor/bootstrap.min.css');
+
+body {
+  background: url('../images/background.png') center;
+}
+
+.panel {
+  width: 500px;
+  margin: 30px auto;
+}
