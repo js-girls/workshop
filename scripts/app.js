@@ -29,7 +29,7 @@ var updateList = function(items, save) {
     listElement.innerHTML += renderItem(item);
   });
 
-  if (save) { localStorage['taskItems'] = JSON.stringify(items); }
+  if (save) localStorage['taskItems'] = JSON.stringify(items);
 }
 
 var toggleStatus = function(event) {
