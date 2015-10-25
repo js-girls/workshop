@@ -4,9 +4,15 @@ body {
   background: url('../images/background.png') center;
 }
 
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin: 20px;
+}
+
 .panel {
   width: 500px;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 
 .list-group-item-success span {
