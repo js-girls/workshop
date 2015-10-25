@@ -21,7 +21,7 @@ var renderItem = function(item) {
 }
 
 var updateList = function(items, save) {
-  var listElement = document.querySelector('#todo-list');
+  var listElement = document.querySelector('#task-list');
 
   listElement.innerHTML = '';
 
