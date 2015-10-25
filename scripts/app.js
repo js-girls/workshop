@@ -45,11 +45,12 @@ var toggleStatus = function(event) {
 
 var createNew = function(event) {
   var newItemElement = document.querySelector('#new-item');
+  var newItemText = newItemElement.value.trim();
 
   if (event.keyCode != 13) return;
-  if (newItemElement.value.trim() == '') return;
+  if (!newItemText) return;
 
-  taskItems.push({ text: newItemElement.value, completed: false });
+  taskItems.push({ text: newItemText, completed: false });
   newItemElement.value = '';
 
   updateList(taskItems, true);
