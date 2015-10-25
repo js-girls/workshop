@@ -1,8 +1,12 @@
-var taskItems = [
-  { text: 'Buy coffee',  completed: true  },
-  { text: 'Buy milk',    completed: false },
-  { text: 'Disco dance', completed: false }
-];
+var loadList = function() {
+  if (localStorage['taskItems']) return JSON.parse(localStorage['taskItems']);
+
+  return [
+    { text: 'Buy coffee',  completed: true  },
+    { text: 'Buy milk',    completed: false },
+    { text: 'Disco dance', completed: false }
+  ];
+}
 
 var renderItem = function(item) {
   var template = document.querySelector('#item-template').innerHTML;
@@ -16,7 +20,7 @@ var renderItem = function(item) {
     .replace('_CHECKED_', item['completed'] ? 'checked' : '');
 }
 
-var renderList = function(items) {
+var updateList = function(items, save) {
   var listElement = document.querySelector('#todo-list');
 
   listElement.innerHTML = '';
@@ -24,6 +28,8 @@ var renderList = function(items) {
   items.forEach(function(item) {
     listElement.innerHTML += renderItem(item);
   });
+
+  if (save) { localStorage['taskItems'] = JSON.stringify(items); }
 }
 
 var toggleStatus = function(event) {
@@ -34,17 +40,7 @@ var toggleStatus = function(event) {
     return item;
   });
 
-  renderList(taskItems);
-}
-
-var removeItem = function(event) {
-  var text = event.target.parentNode.querySelector('span').innerHTML;
-
-  taskItems = taskItems.filter(function(item) {
-    if (item['text'] != text) return true;
-  });
-
-  renderList(taskItems);
+  updateList(taskItems, true);
 }
 
 var createNew = function(event) {
@@ -56,10 +52,20 @@ var createNew = function(event) {
   taskItems.push({ text: newItemElement.value, completed: false });
   newItemElement.value = '';
 
-  renderList(taskItems);
+  updateList(taskItems, true);
 }
 
-var showItems = function(what) {
+var removeItem = function(event) {
+  var text = event.target.parentNode.querySelector('span').innerHTML;
+
+  taskItems = taskItems.filter(function(item) {
+    if (item['text'] != text) return true;
+  });
+
+  updateList(taskItems, true);
+}
+
+var filterItems = function(what) {
   var itemsToShow = [];
 
   switch(what) {
@@ -78,7 +84,7 @@ var showItems = function(what) {
       break;
   }
 
-  renderList(itemsToShow);
+  updateList(itemsToShow);
 }
 
 var clearCompleted = function() {
@@ -86,7 +92,8 @@ var clearCompleted = function() {
     return !item['completed'];
   });
 
-  renderList(taskItems);
+  updateList(taskItems, true);
 }
 
-renderList(taskItems);
+var taskItems = loadList();
+updateList(taskItems);
