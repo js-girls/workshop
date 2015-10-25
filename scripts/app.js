@@ -68,20 +68,16 @@ var removeItem = function(event) {
 var filterItems = function(what) {
   var itemsToShow = [];
 
-  switch(what) {
-    case 'completed':
-      itemsToShow = taskItems.filter(function(item) {
-        return item['completed'];
-      });
-      break;
-    case 'active':
-      itemsToShow = taskItems.filter(function(item) {
-        return !item['completed'];
-      });
-      break;
-    default:
-      itemsToShow = taskItems;
-      break;
+  if (what == 'completed') {
+    itemsToShow = taskItems.filter(function(item) {
+      return item['completed'];
+    });
+  } else if (what == 'active') {
+    itemsToShow = taskItems.filter(function(item) {
+      return !item['completed'];
+    });
+  } else {
+    itemsToShow = taskItems;
   }
 
   updateList(itemsToShow);
