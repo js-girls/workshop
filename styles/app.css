@@ -2,6 +2,7 @@
 
 body {
   background: url('../images/background.png') center;
+  padding: 0 20px;
 }
 
 h2 {
@@ -11,7 +12,7 @@ h2 {
 }
 
 .panel {
-  width: 500px;
+  max-width: 500px;
   margin: 20px auto;
 }
 
