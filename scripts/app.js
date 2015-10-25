@@ -33,7 +33,7 @@ var updateList = function(items, save) {
 }
 
 var toggleStatus = function(event) {
-  var text = event.target.parentNode.querySelector('span').innerHTML;
+  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
 
   taskItems = taskItems.map(function(item) {
     if (item['text'] == text) item['completed'] = !item['completed'];
@@ -56,7 +56,7 @@ var createNew = function(event) {
 }
 
 var removeItem = function(event) {
-  var text = event.target.parentNode.querySelector('span').innerHTML;
+  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
 
   taskItems = taskItems.filter(function(item) {
     if (item['text'] != text) return true;

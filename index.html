@@ -9,7 +9,7 @@
         <div class="checkbox">
           <label>
             <input type="checkbox" onclick="toggleStatus(event)" _CHECKED_>
-            <span>_TEXT_</span>
+            <span class="item-text">_TEXT_</span>
           </label>
           <button class="close" onclick="removeItem(event)">&times;</button>
         </div>
@@ -24,10 +24,10 @@
       </div>
       <ul id="task-list" class="list-group"></ul>
       <div class="panel-footer">
-        <button onclick="filterItems()" class="btn btn-link btn-xs">All</button>
-        <button onclick="filterItems('active')" class="btn btn-link btn-xs">Active</button>
-        <button onclick="filterItems('completed')" class="btn btn-link btn-xs">Completed</button>
-        <button onclick="clearCompleted()" class="btn btn-link btn-xs pull-right">Clear completed</button>
+        <button class="btn btn-link btn-xs" onclick="filterItems()">All</button>
+        <button class="btn btn-link btn-xs" onclick="filterItems('active')">Active</button>
+        <button class="btn btn-link btn-xs" onclick="filterItems('completed')">Completed</button>
+        <button class="btn btn-link btn-xs pull-right" onclick="clearCompleted()">Clear completed</button>
       </div>
     </div>
     <script src="scripts/app.js"></script>
