@@ -12,17 +12,9 @@ h2 {
   margin: 20px;
 }
 
-.item-text {
-  font-family: 'Architects Daughter', cursive;
-}
-
 .panel {
   max-width: 500px;
   margin: 20px auto;
-}
-
-.list-group-item {
-  font-size: 1.4em;
 }
 
 .list-group-item label {
@@ -30,6 +22,7 @@ h2 {
 }
 
 .item-text {
+  font: 1.4em 'Architects Daughter', cursive;
   position: relative;
   top: -3px;
   left: 3px;

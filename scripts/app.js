@@ -1,7 +1,5 @@
 var loadList = function() {
-  if (localStorage['taskItems']) {
-    return JSON.parse(localStorage['taskItems']);
-  }
+  if (localStorage['taskItems']) return JSON.parse(localStorage['taskItems']);
 
   return [
     { text: 'Buy coffee',  completed: true  },
@@ -35,9 +33,7 @@ var updateList = function(items, save) {
     listElement.innerHTML += renderItem(item);
   });
 
-  if (save) {
-    localStorage['taskItems'] = JSON.stringify(items);
-  }
+  if (save) localStorage['taskItems'] = JSON.stringify(items);
 
   updateCounters();
 }
@@ -46,9 +42,7 @@ var updateCounters = function() {
   var completedCount = 0;
 
   taskItems.forEach(function(item) {
-    if (item['completed']) {
-      completedCount++;
-    }
+    if (item['completed']) completedCount++;
   });
 
   document.querySelector('.filter-all').dataset.count = taskItems.length;
