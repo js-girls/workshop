@@ -35,6 +35,21 @@ h2 {
   left: 3px;
 }
 
-.list-group-item-success span {
+.completed {
+  color: #999;
+  background-color: #f5f5f5;
+}
+
+.completed span {
   text-decoration: line-through;
+}
+
+.filter {
+  background: none;
+  border: none;
+  color: #337ab7;
+}
+
+[data-count]:after {
+  content: " (" attr(data-count) ")";
 }

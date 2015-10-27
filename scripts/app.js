@@ -16,7 +16,7 @@ var renderItem = function(item) {
   var checkedAttr = '';
 
   if (item['completed']) {
-    classAttr.push('list-group-item-success');
+    classAttr.push('completed');
     checkedAttr = 'checked';
   }
 
@@ -35,7 +35,25 @@ var updateList = function(items, save) {
     listElement.innerHTML += renderItem(item);
   });
 
-  if (save) localStorage['taskItems'] = JSON.stringify(items);
+  if (save) {
+    localStorage['taskItems'] = JSON.stringify(items);
+  }
+
+  updateCounters();
+}
+
+var updateCounters = function() {
+  var completedCount = 0;
+
+  taskItems.forEach(function(item) {
+    if (item['completed']) {
+      completedCount++;
+    }
+  });
+
+  document.querySelector('.filter-all').dataset.count = taskItems.length;
+  document.querySelector('.filter-active').dataset.count = taskItems.length - completedCount;
+  document.querySelector('.filter-completed').dataset.count = completedCount;
 }
 
 var toggleStatus = function(event) {

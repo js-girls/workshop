@@ -23,11 +23,11 @@
         <input id="new-item" class="form-control" placeholder="Add a new task..." onkeyup="createNew(event)" autofocus="autofocus">
       </div>
       <ul id="task-list" class="list-group"></ul>
-      <div class="panel-footer">
-        <small>Filter:</small>
-        <button class="btn btn-link btn-xs" onclick="filterItems()">All</button>
-        <button class="btn btn-link btn-xs" onclick="filterItems('active')">Active</button>
-        <button class="btn btn-link btn-xs" onclick="filterItems('completed')">Completed</button>
+      <div class="panel-footer small">
+        <span>Filter:</span>
+        <button class="filter filter-all" onclick="filterItems()">All</button>
+        <button class="filter filter-active" onclick="filterItems('active')">Active</button>
+        <button class="filter filter-completed" onclick="filterItems('completed')">Completed</button>
         <button class="btn btn-default btn-xs pull-right" onclick="clearCompleted()">Clear completed</button>
       </div>
     </div>
