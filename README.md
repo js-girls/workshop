@@ -22,5 +22,5 @@ In order to understand the code of this simple app, is necessary to grasp these 
   * `JSON` and `localStorage`
 
 ## Exercises
-* Prevent inserting a task if already present
-* Show counters for all / completed / active tasks
+  * Prevent inserting a task if already present
+  * Show counters for all / completed / active tasks

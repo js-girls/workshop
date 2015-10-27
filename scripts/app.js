@@ -1,5 +1,7 @@
 var loadList = function() {
-  if (localStorage['taskItems']) return JSON.parse(localStorage['taskItems']);
+  if (localStorage['taskItems']) {
+    return JSON.parse(localStorage['taskItems']);
+  }
 
   return [
     { text: 'Buy coffee',  completed: true  },
@@ -11,13 +13,17 @@ var loadList = function() {
 var renderItem = function(item) {
   var template = document.querySelector('#item-template').innerHTML;
   var classAttr = ['list-group-item'];
+  var checkedAttr = '';
 
-  if (item['completed']) classAttr.push('list-group-item-success');
+  if (item['completed']) {
+    classAttr.push('list-group-item-success');
+    checkedAttr = 'checked';
+  }
 
   return template
     .replace('_TEXT_', item['text'])
     .replace('_CLASS_', classAttr.join(' '))
-    .replace('_CHECKED_', item['completed'] ? 'checked' : '');
+    .replace('_CHECKED_', checkedAttr);
 }
 
 var updateList = function(items, save) {
@@ -45,12 +51,13 @@ var toggleStatus = function(event) {
 
 var createNew = function(event) {
   var newItemElement = document.querySelector('#new-item');
-  var newItemText = newItemElement.value.trim();
+  var newItemValue = newItemElement.value.trim();
+  var returnKeyCode = 13;
 
-  if (event.keyCode != 13) return;
-  if (!newItemText) return;
+  if (event.keyCode != returnKeyCode) return;
+  if (!newItemValue) return;
 
-  taskItems.push({ text: newItemText, completed: false });
+  taskItems.push({ text: newItemValue, completed: false });
   newItemElement.value = '';
 
   updateList(taskItems, true);
@@ -66,14 +73,14 @@ var removeItem = function(event) {
   updateList(taskItems, true);
 }
 
-var filterItems = function(what) {
+var filterItems = function(status) {
   var itemsToShow = [];
 
-  if (what == 'completed') {
+  if (status == 'completed') {
     itemsToShow = taskItems.filter(function(item) {
       return item['completed'];
     });
-  } else if (what == 'active') {
+  } else if (status == 'active') {
     itemsToShow = taskItems.filter(function(item) {
       return !item['completed'];
     });
