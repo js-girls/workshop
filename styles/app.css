@@ -18,7 +18,7 @@ h2 {
 }
 
 .list-group-item label {
-  width: 90%;
+  max-width: 90%;
 }
 
 .item-text {

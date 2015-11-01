@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Js Girls - Awesome Tasks</title>
+    <link href="styles/app.css" rel="stylesheet">
+    <script id="item-template" type="text/template">
+      <li class="_CLASS_">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" onclick="toggleStatus(event)" _CHECKED_>
+            <span class="item-text">_TEXT_</span>
+          </label>
+          <button class="close" onclick="removeItem(event)">&times;</button>
+        </div>
+      </li>
+    </script>
+  </head>
+  <body>
+    <h2>Awesome Tasks!</h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+      </div>
+      <ul id="task-list" class="list-group"></ul>
+      <div class="panel-footer small">
+        <span>Filter:</span>
+        <button class="filter filter-all" onclick="filterItems()">All</button>
+        <button class="filter filter-active" onclick="filterItems('active')">Active</button>
+        <button class="filter filter-completed" onclick="filterItems('completed')">Completed</button>
+        <button class="btn btn-default btn-xs pull-right" onclick="clearCompleted()">Clear completed</button>
+      </div>
+    </div>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 var loadList = function() {
-  if (localStorage['taskItems']) return JSON.parse(localStorage['taskItems']);
+  if (localStorage['listItems']) return JSON.parse(localStorage['listItems']);
 
   return [
     { text: 'Buy coffee',  completed: true  },
@@ -33,7 +33,7 @@ var updateList = function(items, save) {
     listElement.innerHTML += renderItem(item);
   });
 
-  if (save) localStorage['taskItems'] = JSON.stringify(items);
+  if (save) localStorage['listItems'] = JSON.stringify(items);
 
   updateCounters();
 }
@@ -41,75 +41,73 @@ var updateList = function(items, save) {
 var updateCounters = function() {
   var completedCount = 0;
 
-  taskItems.forEach(function(item) {
+  listItems.forEach(function(item) {
     if (item['completed']) completedCount++;
   });
 
-  document.querySelector('.filter-all').dataset.count = taskItems.length;
-  document.querySelector('.filter-active').dataset.count = taskItems.length - completedCount;
+  document.querySelector('.filter-all').dataset.count = listItems.length;
+  document.querySelector('.filter-active').dataset.count = listItems.length - completedCount;
   document.querySelector('.filter-completed').dataset.count = completedCount;
 }
 
 var toggleStatus = function(event) {
   var text = event.target.parentNode.querySelector('.item-text').innerHTML;
 
-  taskItems = taskItems.map(function(item) {
+  listItems = listItems.map(function(item) {
     if (item['text'] == text) item['completed'] = !item['completed'];
     return item;
   });
 
-  updateList(taskItems, true);
+  updateList(listItems, true);
 }
 
 var createNew = function(event) {
   var newItemElement = document.querySelector('#new-item');
   var newItemValue = newItemElement.value.trim();
-  var returnKeyCode = 13;
 
-  if (event.keyCode != returnKeyCode) return;
   if (!newItemValue) return;
 
-  taskItems.push({ text: newItemValue, completed: false });
+  listItems.push({ text: newItemValue, completed: false });
   newItemElement.value = '';
 
-  updateList(taskItems, true);
+  updateList(listItems, true);
 }
 
 var removeItem = function(event) {
   var text = event.target.parentNode.querySelector('.item-text').innerHTML;
 
-  taskItems = taskItems.filter(function(item) {
+  listItems = listItems.filter(function(item) {
     if (item['text'] != text) return true;
   });
 
-  updateList(taskItems, true);
+  updateList(listItems, true);
 }
 
 var filterItems = function(status) {
   var itemsToShow = [];
 
   if (status == 'completed') {
-    itemsToShow = taskItems.filter(function(item) {
+    itemsToShow = listItems.filter(function(item) {
       return item['completed'];
     });
   } else if (status == 'active') {
-    itemsToShow = taskItems.filter(function(item) {
+    itemsToShow = listItems.filter(function(item) {
       return !item['completed'];
     });
   } else {
-    itemsToShow = taskItems;
+    itemsToShow = listItems;
   }
 
   updateList(itemsToShow);
 }
 
 var clearCompleted = function() {
-  taskItems = taskItems.filter(function(item) {
+  listItems = listItems.filter(function(item) {
     return !item['completed'];
   });
 
-  updateList(taskItems, true);
+  updateList(listItems, true);
 }
 
-var taskItems = loadList();
-updateList(taskItems);
+var listItems = loadList();
+updateList(listItems);
