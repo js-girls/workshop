@@ -8,22 +8,6 @@ var loadList = function() {
   ];
 }
 
-var renderItem = function(item) {
-  var template = document.querySelector('#item-template').innerHTML;
-  var classAttr = ['list-group-item'];
-  var checkedAttr = '';
-
-  if (item['completed']) {
-    classAttr.push('completed');
-    checkedAttr = 'checked';
-  }
-
-  return template
-    .replace('_TEXT_', item['text'])
-    .replace('_CLASS_', classAttr.join(' '))
-    .replace('_CHECKED_', checkedAttr);
-}
-
 var updateList = function(items, save) {
   var listElement = document.querySelector('#task-list');
 
@@ -38,27 +22,20 @@ var updateList = function(items, save) {
   updateCounters();
 }
 
-var updateCounters = function() {
-  var completedCount = 0;
+var renderItem = function(item) {
+  var template = document.querySelector('#item-template').innerHTML;
+  var classAttr = ['list-group-item'];
+  var checkedAttr = '';
 
-  listItems.forEach(function(item) {
-    if (item['completed']) completedCount++;
-  });
+  if (item['completed']) {
+    classAttr.push('completed');
+    checkedAttr = 'checked';
+  }
 
-  document.querySelector('.filter-all').dataset.count = listItems.length;
-  document.querySelector('.filter-active').dataset.count = listItems.length - completedCount;
-  document.querySelector('.filter-completed').dataset.count = completedCount;
-}
-
-var toggleStatus = function(event) {
-  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
-
-  listItems = listItems.map(function(item) {
-    if (item['text'] == text) item['completed'] = !item['completed'];
-    return item;
-  });
-
-  updateList(listItems, true);
+  return template
+    .replace('_TEXT_', item['text'])
+    .replace('_CLASS_', classAttr.join(' '))
+    .replace('_CHECKED_', checkedAttr);
 }
 
 var createNew = function(event) {
@@ -78,6 +55,17 @@ var removeItem = function(event) {
 
   listItems = listItems.filter(function(item) {
     if (item['text'] != text) return true;
+  });
+
+  updateList(listItems, true);
+}
+
+var toggleStatus = function(event) {
+  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
+
+  listItems = listItems.map(function(item) {
+    if (item['text'] == text) item['completed'] = !item['completed'];
+    return item;
   });
 
   updateList(listItems, true);
@@ -107,6 +95,18 @@ var clearCompleted = function() {
   });
 
   updateList(listItems, true);
+}
+
+var updateCounters = function() {
+  var completedCount = 0;
+
+  listItems.forEach(function(item) {
+    if (item['completed']) completedCount++;
+  });
+
+  document.querySelector('.filter-all').dataset.count = listItems.length;
+  document.querySelector('.filter-active').dataset.count = listItems.length - completedCount;
+  document.querySelector('.filter-completed').dataset.count = completedCount;
 }
 
 var listItems = loadList();

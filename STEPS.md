@@ -1,14 +1,14 @@
 # How to build Awesome Tasks, step by step
 
 This document describes how to build Awesome Tasks step by step.
-Each step introduces new concepts, so make sure you understand what's going on before going further! If you have any doubts, please ask your coach for help!
+We will be introducing new concepts on each step, so make sure you understand what's going on before going further! If you have any doubts, please ask your coach for help!
 
 ## Step 1
 ### From basic HTML markup and styling to a dynamic list of tasks
 
 We will start with a new HTML file called `index.html`. We will use it as the skeleton of our little app. Here is how it will look like:
 
-*1.1 · `index.html` base markup*
+*1.1 —`index.html` base markup*
 ```html
 <!DOCTYPE html>
 <html>
@@ -26,13 +26,13 @@ We will start with a new HTML file called `index.html`. We will use it as the sk
 </html>
 ```
 
-If you open this file in a web browser, you will see a pretty boring HTML page that shows a title and a static list of things to do. Not that much!
+If you open this file in a web browser, you will see a pretty boring HTML page that shows a title and a static list of things to do. Not that much, to be honest!
 
-The first thing we are going to do will be to take control of the task list: we will use JavaScript for adding a new task.
+The first thing we are going to do will be taking control of the task list: we will use JavaScript for adding a new task.
 
 Before `</body>`, let’s add this:
 
-*1.2 · The `<script>` tag*
+*1.2 — The `<script>` tag*
 ```html
 <script>
   var listElement = document.querySelector('#task-list');
@@ -42,8 +42,7 @@ Before `</body>`, let’s add this:
 
 If we reload the page now, we will see a new task popping up in our list: it comes straight from JavaScript!
 
-** What we just did:**
-
+**What we just did:**
   * We used the `document.querySelector()` DOM API to access our `#task-list` element
   * We modified its `innerHTML` property by adding some more HTML: our new task item.
 
@@ -55,14 +54,14 @@ Let’s introduce a new concept: the `Array`. We will need this concept for grou
 
 Let’s remove all our static tasks from the page:
 
-*2.1 · Let’s empty the `<ul>`*
+*2.1 — Let’s empty the `<ul>`*
 ```html
 <ul id="task-list"></ul>
 ```
 
 And now let's use an `Array` for display all our tasks
 
-*2.2 · All the tasks rendered from JavaScript*
+*2.2 — All the tasks rendered from JavaScript*
 ```html
 <script>
   var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
@@ -73,9 +72,10 @@ And now let's use an `Array` for display all our tasks
 </script>
 ```
 
-Cool! We started with an empty `<ul>` element and then we populated it using an `Array` (containing strings) and its `forEach` method.
+Cool! We started with an empty `<ul>` element and then we populated it using an `Array` (containing strings) and its `forEach()` method.
 
-It may look useless at the moment (the output is the same, after all 😒) but what we just did is to make our little app display *dynamic data*. Dynamic, because we will soon be able to add and remove tasks by modifying our `listItems` array.
+It may look useless at the moment (the output is the same, after all 😒) but what we just did is to make our little app display *dynamic data*.
+Dynamic, because we will soon be able to add and remove tasks by modifying our `listItems` array.
 
 ### Key concepts: input, business logic and output
 
@@ -85,7 +85,7 @@ Now comes an important concept: the distinction between **data** and **business 
 
 So what is business logic and what is data in our app?
 
-*2.3 · data and business logic*
+*2.3 — data and business logic*
 ```html
 <script>
   // This is our data.
@@ -101,7 +101,7 @@ So what is business logic and what is data in our app?
 
 And the output? Well, the output is the HTML that displays our tasks. Simple!
 
-*2.3 · output*
+*2.3 — output*
 ```html
 <ul id="task-list">
   <li>Buy coffee</li>
@@ -115,6 +115,7 @@ Actually, we could consider the entire page as the output, but for now let’s f
 Our business logic is doing just one thing: rendering a list of items.
 Let’s create a `function` for this: we will need it to render again our list of tasks after we modify our data.
 
+*2.4 — the `updateList()` function*
 ```html
 <script>
   var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
@@ -138,15 +139,15 @@ Time to ask input to the user and add other items to our list!
 
 Before our `<ul>` element, let’s add this HTML code:
 
-*3.1 · The `#new-item` input*
+*3.1 — The `#new-item` input*
 ```html
 <input id="new-item" placeholder="Add a new task..." onchange="createNew()">
 ```
 
-Every time the user inputs some text inside our input field and presses the return key, the function specified in the `onchange` attribute will be called for us.
-So let’s add a `createNew` function after `updateList` for capturing what the user just typed!
+Every time the user inputs some text inside our input field and presses the Return key, the function specified in the `onchange` attribute will be called for us.
+So let’s add a `createNew()` function after `updateList()` for capturing what the user just typed!
 
-*3.2 · The `createNew` function*
+*3.2 — The `createNew` function*
 ```js
 var createNew = function() {
   var newItemElement = document.querySelector('#new-item');
@@ -161,21 +162,22 @@ var createNew = function() {
 }
 ```
 
-This function will do three things:
-
+This function does three things:
   * inserts what the user just wrote in the text field inside the `listItems` array using the `push()` method
   * cleans up the text field
-  * calls the `updateList` function for displaying the newly created item.
+  * calls the `updateList()` function for displaying the newly created item.
 
-One more thing! Our `updateList` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
+One more thing! Our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
 This is easily done by adding this line before the `forEach()` call:
 
+*3.3 — Cleaning the previous output*
 ```js
 listElement.innerHTML = '';
 ```
 
 Our final result will be:
 
+*3.3 — Updated `updateList()` function*
 ```js
 var updateList = function(items) {
   var listElement = document.querySelector('#task-list');
@@ -186,3 +188,8 @@ var updateList = function(items) {
   });
 }
 ```
+
+Great! Now we are able to add as many task as we want!
+
+## Step 4
+### Removing items
