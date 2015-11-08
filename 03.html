@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Awesome Tasks</title>
+  </head>
+  <body>
+    <h2>Awesome Tasks</h2>
+    <input id="new-item" placeholder="Add a new task..." onchange="createNew()">
+    <ul id="task-list"></ul>
+    <script>
+      var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
+
+      var updateList = function(items) {
+        var listElement = document.querySelector('#task-list');
+        listElement.innerHTML = '';
+
+        items.forEach(function(item) {
+          listElement.innerHTML += '<li>' + item + '</li>';
+        });
+      }
+
+      var createNew = function() {
+        var newItemElement = document.querySelector('#new-item');
+        var newItemValue = newItemElement.value.trim();
+
+        if (!newItemValue) return;
+
+        listItems.push(newItemValue);
+        newItemElement.value = '';
+
+        updateList(listItems);
+      }
+
+      updateList(listItems);
+    </script>
+  </body>
+</html>

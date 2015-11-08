@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Awesome Tasks</title>
+    <link href="styles/app.css" rel="stylesheet">
+    <script id="item-template" type="text/template">
+      <li class="_CLASS_">
+        <span class="item-text">_TEXT_</span>
+        <button class="close" onclick="removeItem(event)">×</button>
+      </li>
+    </script>
+  </head>
+  <body>
+    <h2>Awesome Tasks</h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+      </div>
+      <ul id="task-list" class="list-group"></ul>
+    </div>
+    <script>
+      var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
+
+      var updateList = function(items) {
+        var listElement = document.querySelector('#task-list');
+        listElement.innerHTML = '';
+
+        items.forEach(function(item) {
+          listElement.innerHTML += renderItem(item);
+        });
+      }
+
+      var renderItem = function(item) {
+        var template = document.querySelector('#item-template').innerHTML;
+        var classAttr = ['list-group-item'];
+
+        return template
+          .replace('_TEXT_', item)
+          .replace('_CLASS_', classAttr);
+      }
+
+      var createNew = function() {
+        var newItemElement = document.querySelector('#new-item');
+        var newItemValue = newItemElement.value.trim();
+
+        if (!newItemValue) return;
+
+        listItems.push(newItemValue);
+        newItemElement.value = '';
+
+        updateList(listItems);
+      }
+
+      var removeItem = function(event) {
+        var clickedItemText = event.target.parentNode.querySelector('.item-text').innerHTML;
+
+        listItems = listItems.filter(function(itemText) {
+          if (itemText != clickedItemText) return true;
+        });
+
+        updateList(listItems);
+      }
+
+      updateList(listItems);
+    </script>
+  </body>
+</html>
