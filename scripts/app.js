@@ -56,10 +56,10 @@ var removeItem = function(event) {
 }
 
 var toggleStatus = function(event) {
-  var text = event.target.innerHTML;
+  var clickedItemText = event.target.innerHTML;
 
   listItems = listItems.map(function(item) {
-    if (item['text'] == text) item['completed'] = !item['completed'];
+    if (item['text'] == clickedItemText) item['completed'] = !item['completed'];
     return item;
   });
 
