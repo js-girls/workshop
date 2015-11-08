@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Awesome Tasks</title>
     <link href="styles/app.css" rel="stylesheet">
-    <script id="item-template" type="text/template">
+    <script id="item-template" type="text/html">
       <li class="_CLASS_">
         <span class="item-text">_TEXT_</span>
         <button class="close" onclick="removeItem(event)">×</button>
@@ -33,7 +33,7 @@
 
       var renderItem = function(item) {
         var template = document.querySelector('#item-template').innerHTML;
-        var classAttr = ['list-group-item'];
+        var classAttr = 'list-group-item';
 
         return template
           .replace('_TEXT_', item)

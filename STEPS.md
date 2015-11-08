@@ -210,6 +210,90 @@ Great! Now we are able to add as many task as we want!
 ## Step 4
 ### Removing items
 
+The next step will be adding a button to our task item for taking it off of our list.
+
+Let's look at the code of our items:
+
+*4.1 — The current markup of each item task item*
+```html
+  <li>Buy coffee</li>
+```
+
+Very simple markup: the only thing this markup contains is the text of the task.
+
+Now we need something like this:
+
+*4.2 — The markup we need for adding the remove feature*
+```html
+<li>
+  <span>Buy coffee</span>
+  <button>×</button>
+</li>
+```
+
+Here our `<li>` element contains two children elements: a `<span>` with some text, and a `<button>` that we will use to remove the task.
+
+Let’s take a look at how we are currently rendering the task item inside the `updateList()` function:
+
+*4.3 — The code we’re currently using to render the task item element*
+```js
+listElement.innerHTML += '<li>' + item + '</li>';
+```
+
+We are doing something very simple to obtain a new task item element: we are concatenating three strings: `<li>`, the item text and `</li>`.
+As we saw above, now we need something slightly more complex: it's time to move this rendering logic into a new function:
+
+*4.4 — A simple `renderItem()` function*
+```js
+var renderItem = function(itemText) {
+  return '<li>' + itemText + '</li>';
+}
+```
+
+*4.5 — Let’s change the code inside `updateList()` to use the new `renderItem()` function*
+```js
+listElement.innerHTML += renderItem(item);
+```
+
+The end result didn’t change yet, but now we built a dedicated place that will contain all the *business logic* we need for transforming an *input* (the task item text) to an *output* (the task item markup).
+
+Now we have some work to do inside the `renderItem()` function: we have to change our output from what we have now (see *4.1*) to what we need (see *4.2*).
+To do this, we will leverage a widely used concept in HTML programming: the templates.
+
+### Key concepts: templates and placeholders
+> A template is a generic piece of HTML code that contains placeholder strings. Replacing placeholder strings with real values is called "compiling a template".
+
+Let’s create our first template. Before the `</head>` tag, let’s add this markup:
+
+*4.6 — The task item template element*
+```html
+<script id="item-template" type="text/html">
+  <li>
+    <span>_TEXT_</span>
+    <button>×</button>
+  </li>
+</script>
+```
+
+We added a `<script>` element (with type `text/html`) that we are using just for storing some HTML (our template string): this element is not displayed in our page (because `<script>` elements are never displayed) and the browser will not try to run the code inside it, because the type we specified is not executable.
+Just think of this element as a "container of text".
+
+The template HTML contains a placeholder string (`_TEXT_`) that we will replace with real value shortly.
+
+Now let’s go back to our `renderItem()` function. What we are going to do now is replacing the `_TEXT_` placeholder with our task item text.
+To do this, we will use the `replace()` method available on strings.
+
+*4.7 — `renderItem()` with template*
+```js
+var renderItem = function(itemText) {
+  var template = document.querySelector('#item-template').innerHTML;
+  return template.replace('_TEXT_', itemText);
+}
+```
+
+Cool! Now the markup of each element is changed, and a little button is showing next to each of our task items.
+But if we click on that button, nothing happens. Let’s fix this!
+
 ## Step 5
 ### Marking items as done
 
