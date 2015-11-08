@@ -25,17 +25,12 @@ var updateList = function(items, save) {
 var renderItem = function(item) {
   var template = document.querySelector('#item-template').innerHTML;
   var classAttr = ['list-group-item'];
-  var checkedAttr = '';
 
-  if (item['completed']) {
-    classAttr.push('completed');
-    checkedAttr = 'checked';
-  }
+  if (item['completed']) { classAttr.push('completed'); }
 
   return template
     .replace('_TEXT_', item['text'])
-    .replace('_CLASS_', classAttr.join(' '))
-    .replace('_CHECKED_', checkedAttr);
+    .replace('_CLASS_', classAttr.join(' '));
 }
 
 var createNew = function(event) {
@@ -61,7 +56,7 @@ var removeItem = function(event) {
 }
 
 var toggleStatus = function(event) {
-  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
+  var text = event.target.innerHTML.trim();
 
   listItems = listItems.map(function(item) {
     if (item['text'] == text) item['completed'] = !item['completed'];

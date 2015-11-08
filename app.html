@@ -6,13 +6,8 @@
     <link href="styles/app.css" rel="stylesheet">
     <script id="item-template" type="text/template">
       <li class="_CLASS_">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" onclick="toggleStatus(event)" _CHECKED_>
-            <span class="item-text">_TEXT_</span>
-          </label>
-          <button class="close" onclick="removeItem(event)">&times;</button>
-        </div>
+        <span class="item-text" onclick="toggleStatus(event)">_TEXT_</span>
+        <button class="close" onclick="removeItem(event)">×</button>
       </li>
     </script>
   </head>

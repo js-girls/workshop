@@ -17,15 +17,31 @@ h2 {
   margin: 20px auto;
 }
 
-.list-group-item label {
-  max-width: 90%;
+.list-group-item {
+  padding: 20px;
+  overflow: auto;
 }
 
 .item-text {
-  font: 1.4em 'Architects Daughter', cursive;
   position: relative;
-  top: -3px;
-  left: 3px;
+  float: left;
+  max-width: 90%;
+  font: 1.4em 'Architects Daughter', cursive;
+  cursor: pointer;
+  padding-left: 25px;
+}
+
+.item-text::before {
+  content: '';
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  box-shadow: inset 0 0 3px #bbb;
+  outline: 1px solid #aaa;
+  border-radius: 0;
 }
 
 .completed {
@@ -35,6 +51,11 @@ h2 {
 
 .completed span {
   text-decoration: line-through;
+}
+
+.completed .item-text::before {
+  border: 2px solid #fff;
+  background-color: #999;
 }
 
 .filter {
