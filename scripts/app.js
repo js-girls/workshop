@@ -46,17 +46,17 @@ var createNew = function(event) {
 }
 
 var removeItem = function(event) {
-  var text = event.target.parentNode.querySelector('.item-text').innerHTML;
+  var clickedItemText = event.target.parentNode.querySelector('.item-text').innerHTML;
 
   listItems = listItems.filter(function(item) {
-    if (item['text'] != text) return true;
+    if (item['text'] != clickedItemText) return true;
   });
 
   updateList(listItems, true);
 }
 
 var toggleStatus = function(event) {
-  var text = event.target.innerHTML.trim();
+  var text = event.target.innerHTML;
 
   listItems = listItems.map(function(item) {
     if (item['text'] == text) item['completed'] = !item['completed'];
