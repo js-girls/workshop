@@ -46,10 +46,10 @@ var createNew = function(event) {
 }
 
 var removeItem = function(event) {
-  var clickedItemText = event.target.parentNode.querySelector('.item-text').innerHTML;
+  var clickedItemText = event.target.previousElementSibling.innerHTML;
 
   listItems = listItems.filter(function(item) {
-    if (item['text'] != clickedItemText) return true;
+    return clickedItemText != item['text'];
   });
 
   updateList(listItems, true);
@@ -58,9 +58,10 @@ var removeItem = function(event) {
 var toggleStatus = function(event) {
   var clickedItemText = event.target.innerHTML;
 
-  listItems = listItems.map(function(item) {
-    if (item['text'] == clickedItemText) item['completed'] = !item['completed'];
-    return item;
+  listItems.forEach(function(item) {
+    if (clickedItemText == item['text']) {
+      item['completed'] = !item['completed'];
+    }
   });
 
   updateList(listItems, true);

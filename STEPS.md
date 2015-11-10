@@ -78,21 +78,21 @@ Cool! We started with an empty `<ul>` element and then we populated it using an 
 It may look useless at the moment (the output is the same, after all 😒) but what we just did is to make our little app display *dynamic data*.
 Dynamic, because we will soon be able to add and remove tasks by modifying our `listItems` array.
 
-### Key concepts: input, business logic and output
+### Key concepts: input, logic and output
 
-Now comes an important concept: the distinction between **data** and **business logic**.
+Now comes an important concept: the distinction between **data** and **logic**.
 
-> Our app *does something* (business logic) that produces an *output* (an HTML page that displays a list of tasks), starting from an *input* (our array of tasks).
+> Our app *does something* (logic) that produces an *output* (an HTML page that displays a list of tasks), starting from an *input* (our array of tasks).
 
-So what is business logic and what is data in our app?
+So what is logic and what is data in our app?
 
-*2.3 — data and business logic*
+*2.3 — data and logic*
 ```html
 <script>
   // This is our data.
   var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
 
-  // this is our business logic.
+  // this is our logic.
   var listElement = document.querySelector('#task-list');
   listItems.forEach(function(task) {
     listElement.innerHTML += '<li>' + task + '</li>';
@@ -113,7 +113,7 @@ And the output? Well, the output is the HTML that displays our tasks. Simple!
 
 Actually, we could consider the entire page as the output, but for now let’s focus on the task list.
 
-Our business logic is doing just one thing: rendering a list of items.
+Our logic is doing just one thing: rendering a list of items.
 Let’s create a `function` for this: we will need it to render again our list of tasks after we modify our data.
 
 *2.4 — the `updateList()` function*
@@ -135,7 +135,7 @@ Let’s create a `function` for this: we will need it to render again our list o
 
 A function is just a piece of code that we can use multiple times. Functions are perfect for avoiding repetition in our code.
 
-Note that first we are **defining** a function (`var updateList = function(...)`), and after we are **calling** it (`updateList(...)`).
+Note that first we are **defining** a function (`var updateList = function(…)`), and after we are **calling** it (`updateList(…)`).
 This is an important concept to understand: when we define a function, nothing visible happens. We are simply creating a “magic word”
 that we can use later in our code. To use it, we simply have to append `()` to the end of the “magic word”, including parameters inside parenthesis where needed.
 
@@ -227,7 +227,7 @@ Now we need something like this:
 ```html
 <li>
   <span>Buy coffee</span>
-  <button>×</button>
+  <button onclick="removeItem(event)">×</button>
 </li>
 ```
 
@@ -255,7 +255,7 @@ var renderItem = function(itemText) {
 listElement.innerHTML += renderItem(item);
 ```
 
-The end result didn’t change yet, but now we built a dedicated place that will contain all the *business logic* we need for transforming an *input* (the task item text) to an *output* (the task item markup).
+The end result didn’t change yet, but now we built a dedicated place that will contain all the *logic* we need for transforming an *input* (the task item text) to an *output* (the task item HTML markup).
 
 Now we have some work to do inside the `renderItem()` function: we have to change our output from what we have now (see *4.1*) to what we need (see *4.2*).
 To do this, we will leverage a widely used concept in HTML programming: the templates.
@@ -270,7 +270,7 @@ Let’s create our first template. Before the `</head>` tag, let’s add this ma
 <script id="item-template" type="text/html">
   <li>
     <span>_TEXT_</span>
-    <button>×</button>
+    <button onclick="removeItem(event)">×</button>
   </li>
 </script>
 ```
@@ -293,6 +293,31 @@ var renderItem = function(itemText) {
 
 Cool! Now the markup of each element is changed, and a little button is showing next to each of our task items.
 But if we click on that button, nothing happens. Let’s fix this!
+
+We need to create a `removeItem()` function (as we wrote in the `onclick` attribute of our button), that will:
+  * remove the clicked item from our task
+  * update the task list
+
+To do this, we will use the array's `filter()` method to update our `listItems`.
+Let’s look at the function code:
+
+*4.8 — `the removeItem()` function*
+```js
+var removeItem = function(event) {
+  var clickedItemText = event.target.previousElementSibling.innerHTML;
+
+  listItems = listItems.filter(function(item) {
+    return clickedItemText != item;
+  });
+
+  updateList(listItems);
+}
+```
+
+The first thing we are doing here is saving in a `clickedItemText` variable the text of our clicked element.
+The way we get to the clicked element is by accessing the `event` object, that is generated by the browser each time a user is interacting with an element (eg. clicking on it).
+
+In the `event` object we can find a lot of useful informations: for example the element that received the click.
 
 ## Step 5
 ### Marking items as done
