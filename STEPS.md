@@ -314,8 +314,8 @@ Let’s look at the function code:
 var removeItem = function(event) {
   var clickedItemText = event.target.previousElementSibling.innerHTML;
 
-  listItems = listItems.filter(function(item) {
-    return clickedItemText != item;
+  listItems = listItems.filter(function(itemText) {
+    return clickedItemText != itemText;
   });
 
   updateList(listItems);
@@ -346,8 +346,41 @@ Time has finally come to make our little app look less ugly!
 We will not be adding new features during this step, but our app will look way better after some little changes in the markup and after we link our stylesheet.
 We will not go through the CSS rules – CSS is a whole new argument and it is beyond the scope of today’s workshop, but feel free to ask your coach for resources if you are interested.
 
+Let’s create a `<link>` tag that points to our CSS file: place this code after the `<title>` tag, inside `<head>`.
+
+```html
+<link href="styles/app.css" rel="stylesheet">
+```
+
+If we reload the page we notice that our page has now a background image and the text changed a bit.
+
+Now let's turn our template item into this:
+
+```html
+<li class="_CLASS_">
+  <span class="item-text" onclick="toggleStatus(event)">_TEXT_</span>
+  <button class="close" onclick="removeItem(event)">×</button>
+</li>
+```
+
+And between the app title `<h2>` and the `<script>` tag let's replace everything with this:
+
+```html
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+  </div>
+  <ul id="task-list" class="list-group"></ul>
+</div>
+```
+
+Notice that we preserved the previous elements, and we added some more elements and classes.
+In this way we gave a better structure to our markup: we created a box that contains our task list, and a dedicated box that contains our input field.
+
 ## Step 5
 ### Marking items as done
+
+
 
 ## Step 6
 ### Adding filters

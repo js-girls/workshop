@@ -56,7 +56,7 @@
         var clickedItemText = event.target.previousElementSibling.innerHTML;
 
         listItems = listItems.filter(function(itemText) {
-          return itemText != clickedItemText;
+          return clickedItemText != itemText;
         });
 
         updateList(listItems);
