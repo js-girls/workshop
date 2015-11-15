@@ -1,7 +1,8 @@
 # How to build Awesome Tasks
 
 This document describes how to build Awesome Tasks step by step.
-We will be introducing new concepts on each step, so make sure you understand what's going on before going further! If you have any doubts, please ask your coach for help!
+We will be introducing new concepts on each step, so make sure you understand what's going on before going further!
+If you have any doubts, please ask your coach for help!
 
 ## Step 1
 ### From basic HTML markup and styling to a dynamic list of tasks
@@ -50,7 +51,7 @@ If we reload the page now, we will see a new task popping up in our list: it com
 ### All the tasks from JavaScript
 
 Now we know how to use JavaScript to modify an element’s `innerHTML`.
-Let’s introduce a new concept: the `Array`. We will need this concept for grouping all our tasks and to make things dynamic.
+Let’s introduce a new concept: the `Array`. We will need it for grouping all our tasks and to make things dynamic.
 
 Let’s remove all our static tasks from the page:
 
@@ -80,16 +81,16 @@ Dynamic, because we will soon be able to add and remove tasks by modifying our `
 
 ### Key concepts: input, logic and output
 
-Now comes an important concept: the distinction between **data** and **logic**.
+Now comes an important concept:
 
-> Our app *does something* (logic) that produces an *output* (an HTML page that displays a list of tasks), starting from an *input* (our array of tasks).
+> Our app does something (*logic*) that turns an *input* (an array of tasks) into an *output* (an HTML page that displays a list of tasks).
 
-So what is logic and what is data in our app?
+So what is input and what is logic in our app?
 
-*2.3 — data and logic*
+*2.3 — input and logic*
 ```html
 <script>
-  // This is our data.
+  // This is our input.
   var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
 
   // this is our logic.
@@ -114,13 +115,14 @@ And the output? Well, the output is the HTML that displays our tasks. Simple!
 Actually, we could consider the entire page as the output, but for now let’s focus on the task list.
 
 Our logic is doing just one thing: rendering a list of items.
-Let’s create a `function` for this: we will need it to render again our list of tasks after we modify our data.
+Let’s create a `function` for this: later we will be adding and removing items to our list (we will modify our data), so having a dedicated piece of code that takes care of updating our output will come in handy.
 
 *2.4 — the `updateList()` function*
 ```html
 <script>
   var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
 
+  // Defining our `updateList()` function...
   var updateList = function(items) {
     var listElement = document.querySelector('#task-list');
 
@@ -129,15 +131,21 @@ Let’s create a `function` for this: we will need it to render again our list o
     });
   }
 
+  // Calling our `updateList()` function passing an array of tasks
   updateList(listItems);
 </script>
 ```
 
-A function is just a piece of code that we can use multiple times. Functions are perfect for avoiding repetition in our code.
+### Function? Uh?
+A function is just a piece of code that we can use multiple times. Functions are perfect for avoiding repetition in our code, and to give structure to a JavaScript application.
 
 Note that first we are **defining** a function (`var updateList = function(…)`), and after we are **calling** it (`updateList(…)`).
-This is an important concept to understand: when we define a function, nothing visible happens. We are simply creating a “magic word”
-that we can use later in our code. To use it, we simply have to append `()` to the end of the “magic word”, including parameters inside parenthesis where needed.
+This is an important concept to understand: when we *define* a function, nothing visible happens. We are simply creating a “magic word”
+that we can use later in our code. To use it, we simply have to append `()` to the end of the “magic word”, including parameters between parenthesis where needed.
+
+When we *call* a function, we can obtain two things:
+* we can create a **new value** (using the `return` keyword)
+* we can produce a **side effect** (for example, we can display something new on our page)
 
 **What we just did:**
   * We put all our tasks into an `Array`, and we used the `forEach()` method for displaying them
@@ -295,7 +303,7 @@ Cool! Now the markup of each element is changed, and a little button is showing 
 But if we click on that button, nothing happens. Let’s fix this!
 
 We need to create a `removeItem()` function (as we wrote in the `onclick` attribute of our button), that will:
-  * remove the clicked item from our task
+  * remove a task from our list
   * update the task list
 
 To do this, we will use the array's `filter()` method to update our `listItems`.
@@ -314,10 +322,28 @@ var removeItem = function(event) {
 }
 ```
 
-The first thing we are doing here is saving in a `clickedItemText` variable the text of our clicked element.
-The way we get to the clicked element is by accessing the `event` object, that is generated by the browser each time a user is interacting with an element (eg. clicking on it).
+The first thing to notice here is that the `removeItem()` function does not *automatically* know which is task we want to remove.
+For JavaScript, what happened is: a button received a click. What happens from now on is completely in our hands.
+The way we get to the clicked task text is by accessing the `event` object, that is generated by the browser each time a user is interacting with an element (eg. clicking on it). In the `event` object we can find a lot of useful informations: for example the element that received the click (called `target`: our button).
 
-In the `event` object we can find a lot of useful informations: for example the element that received the click.
+If we look at the markup, we can notice that our button is at the same level of our `span`, and comes right after it: they are siblings.
+We want to reach the previous element sibling of the button and read its inner HTML. We do this by calling `previousElementSibling` on the `event.target`.
+
+After, we use the `filter()` method on our `listItems` array to obtain a new copy of our list that does not contain the task we are removing.
+
+The last step of our `removeItem()` function will be displaying this new list by calling `updateList()`.
+
+**What we just did:**
+  * we created a template for our task items
+  * we added a button on each task item with an `onclick` attribute
+  * we created a function that removes the clicked item by *filtering* our `listItems` array
+
+## Break: Let’s add some style!
+
+Time has finally come to make our little app look less ugly!
+
+We will not be adding new features during this step, but our app will look way better after some little changes in the markup and after we link our stylesheet.
+We will not go through the CSS rules – CSS is a whole new argument and it is beyond the scope of today’s workshop, but feel free to ask your coach for resources if you are interested.
 
 ## Step 5
 ### Marking items as done
@@ -327,3 +353,10 @@ In the `event` object we can find a lot of useful informations: for example the 
 
 ## Step 7
 ### Saving and loading our tasks with `localStorage`
+
+## It’s not a bug, it’s a feature!
+
+Writing code without bugs is very hard (if not impossible), and our little app contains (at least) two of them.
+
+* When we start writing something in the input field and then we click outside it, the item gets added even if we didn’t press the enter key!
+* We can add multiple items with the exact same text (not exactly a bug), but when we interact with one of those, our action is ran against all the duplicates!
