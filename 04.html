@@ -15,7 +15,7 @@
     <h2>Awesome Tasks</h2>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+        <input onkeyup="createNew(event)" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
       </div>
       <ul id="task-list" class="list-group"></ul>
     </div>
@@ -40,10 +40,11 @@
           .replace('_CLASS_', classAttr);
       }
 
-      var createNew = function() {
-        var newItemElement = document.querySelector('#new-item');
+      var createNew = function(event) {
+        var newItemElement = event.target;
         var newItemValue = newItemElement.value.trim();
 
+        if (event.keyCode != 13) return;
         if (!newItemValue) return;
 
         listItems.push(newItemValue);

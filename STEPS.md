@@ -158,20 +158,20 @@ Time to ask input to the user and add other items to our list!
 
 Before our `<ul>` element, let’s add this HTML code:
 
-*3.1 — The `#new-item` input*
+*3.1 — The new item input*
 ```html
-<input id="new-item" placeholder="Add a new task..." onchange="createNew()">
+<input onkeyup="createNew(event)" placeholder="Add a new task...">
 ```
 
-Every time the user inputs some text inside our newly created input field and presses the Return key, the function specified in the `onchange` attribute will be called for us.
-So let’s add a `createNew()` function after `updateList()` for capturing what the user just typed!
+Every time the user types some text inside our newly created input field, the function specified in the `onkeyup` attribute will be called for us. So let’s add a `createNew()` function after `updateList()` for capturing what the user just typed!
 
 *3.2 — The `createNew` function*
 ```js
-var createNew = function() {
-  var newItemElement = document.querySelector('#new-item');
+var createNew = function(event) {
+  var newItemElement = event.target;
   var newItemValue = newItemElement.value.trim();
 
+  if (event.keyCode != 13) return;
   if (!newItemValue) return;
 
   listItems.push(newItemValue);
@@ -185,6 +185,8 @@ This function does three things:
   * inserts what the user just wrote in the text field inside the `listItems` array using the `push()` method
   * cleans up the text field
   * calls the `updateList()` function for displaying the newly created item.
+
+Of course we actually want to save the new task only when the user presses the Return key. We can find the `keyCode` of the pressed key inside the `event` object, and we can easily stop the execution of the function with the `return` statement if the key pressed by the user is different from the Enter key (whose code is 13).
 
 One more thing! Our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
 
@@ -358,7 +360,7 @@ Now let's turn our template item into this:
 
 ```html
 <li class="_CLASS_">
-  <span class="item-text">_TEXT_</span>
+  <span>_TEXT_</span>
   <button class="close" onclick="removeItem(event)">×</button>
 </li>
 ```
@@ -368,7 +370,7 @@ And between the app title `<h2>` and the `<script>` tag let's replace everything
 ```html
 <div class="panel panel-default">
   <div class="panel-heading">
-    <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+    <input onkeyup="createNew(event)" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
   </div>
   <ul id="task-list" class="list-group"></ul>
 </div>
@@ -390,7 +392,6 @@ In this way we gave a better structure to our markup: we created a box that cont
 
 ## It’s not a bug, it’s a feature!
 
-Writing code without bugs is very hard (if not impossible), and our little app contains (at least) two of them.
+Writing code without bugs is very hard (if not impossible), and our little app contains (at least) one of them.
 
-* When we start writing something in the input field and then we click outside it, the item gets added even if we didn’t press the enter key!
 * We can add multiple items with the exact same text (not exactly a bug), but when we interact with one of those, our action is ran against all the duplicates!

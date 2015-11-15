@@ -34,9 +34,10 @@ var renderItem = function(item) {
 }
 
 var createNew = function(event) {
-  var newItemElement = document.querySelector('#new-item');
+  var newItemElement = event.target;
   var newItemValue = newItemElement.value.trim();
 
+  if (event.keyCode != 13) return;
   if (!newItemValue) return;
 
   listItems.push({ text: newItemValue, completed: false });

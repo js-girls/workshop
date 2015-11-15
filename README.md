@@ -16,7 +16,7 @@ In order to understand the code of this simple app, you will need to grasp these
 
 ### The DOM
   * `Element` and some of its properties and methods (`querySelector`, `innerHTML`, `previousElementSibling`)
-  * The events and the event object main properties (`target`)
+  * The events and the event object main properties (`target`, `keyCode`)
 
 ### Persistence on the browser
   * `JSON` and `localStorage`

@@ -7,7 +7,7 @@
     <script id="item-template" type="text/html">
       <li class="_CLASS_">
         <span onclick="toggleStatus(event)">_TEXT_</span>
-        <button class="close" onclick="removeItem(event)">×</button>
+        <button onclick="removeItem(event)" class="close">×</button>
       </li>
     </script>
   </head>
@@ -15,15 +15,15 @@
     <h2>Awesome Tasks</h2>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <input id="new-item" class="form-control" placeholder="Add a new task..." onchange="createNew(event)" autofocus="autofocus">
+        <input onkeyup="createNew(event)" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
       </div>
       <ul id="task-list" class="list-group"></ul>
       <div class="panel-footer small">
         <span>Filter:</span>
-        <button class="filter filter-all" onclick="filterItems()">All</button>
-        <button class="filter filter-active" onclick="filterItems('active')">Active</button>
-        <button class="filter filter-completed" onclick="filterItems('completed')">Completed</button>
-        <button class="btn btn-default btn-xs pull-right" onclick="clearCompleted()">Clear completed</button>
+        <button onclick="filterItems()" class="filter filter-all">All</button>
+        <button onclick="filterItems('active')" class="filter filter-active">Active</button>
+        <button onclick="filterItems('completed')" class="filter filter-completed">Completed</button>
+        <button onclick="clearCompleted()" class="btn btn-default btn-xs pull-right">Clear completed</button>
       </div>
     </div>
     <script src="scripts/app.js"></script>
