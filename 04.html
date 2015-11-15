@@ -53,10 +53,10 @@
       }
 
       var removeItem = function(event) {
-        var clickedItemText = event.target.parentNode.querySelector('.item-text').innerHTML;
+        var clickedItemText = event.target.previousElementSibling.innerHTML;
 
         listItems = listItems.filter(function(itemText) {
-          if (itemText != clickedItemText) return true;
+          return itemText != clickedItemText;
         });
 
         updateList(listItems);
