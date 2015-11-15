@@ -44,16 +44,16 @@ h2 {
   border-radius: 0;
 }
 
-.completed {
+[data-completed="true"] {
   color: #999;
   background-color: #f5f5f5;
 }
 
-.completed > span {
+[data-completed="true"] > span {
   text-decoration: line-through;
 }
 
-.completed > span::before {
+[data-completed="true"] > span::before {
   border: 2px solid #fff;
   background-color: #999;
 }

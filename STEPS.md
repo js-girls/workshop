@@ -359,9 +359,9 @@ If we reload the page we notice that our page has now a background image and the
 Now let's turn our template item into this:
 
 ```html
-<li class="_CLASS_">
+<li class="list-group-item">
   <span>_TEXT_</span>
-  <button class="close" onclick="removeItem(event)">×</button>
+  <button onclick="removeItem(event)" class="close">×</button>
 </li>
 ```
 
@@ -376,19 +376,122 @@ And between the app title `<h2>` and the `<script>` tag let's replace everything
 </div>
 ```
 
-Notice that we preserved the previous elements, and we added some more elements and classes.
-In this way we gave a better structure to our markup: we created a box that contains our task list, and a dedicated box that contains our input field.
+Notice that we preserved all the previous elements, and we added some more elements and classes.
+In this way we gave a better structure to our markup: we created a box that contains our tasks list, and a dedicated box that contains our input field.
 
 ## Step 5
 ### Marking items as done
 
+The next feature of our app will be marking items as done. To do this we need to rethink how we are representing our task items.
 
+What we now call “a task” is a simple string in our code (a base value), and we cannot store other informations there.
+We need to find a new way for representing our task: something that allows us to store other informations together with the text of the task, for example whether this task is completed or not. What we need here is a compound value, so we can group more than one value in a single entity. In JavaScript there are two compound values: `Array` (which we already know), and `Object`. Let’s use an `Object`.
+
+Our task list will now become something like this:
+
+*5.1 – the new `listItem` with objects instead of strings*
+```js
+var listItems = [
+  { text: 'Buy coffee',  completed: true  },
+  { text: 'Buy milk',    completed: false },
+  { text: 'Disco dance', completed: false }
+];
+```
+
+Each task is now an `Object` with two properties: `text` (containing a `String` value) and `completed` (containing a `Boolean` value).
+These properties are accessible via the dot notation:
+
+```js
+var item = { text: 'Example task', completed: true };
+console.log(item.text); // will print 'Example task'
+console.log(item.completed); // will print true
+```
+
+This is an important change in our app: we are changing the input data, and this forces us to modify our logic accordingly – otherwise our app will not work anymore.
+
+Let’s modify our functions to be compatible with this new input format.
+
+*5.2 – the new `renderItem()` function*
+```js
+var renderItem = function(item) {
+  var template = document.querySelector('#item-template').innerHTML;
+  return template.replace('_TEXT_', item.text);
+}
+```
+
+*5.3 – the new `createNew()` function*
+```js
+var createNew = function(event) {
+  var newItemElement = event.target;
+  var newItemValue = newItemElement.value.trim();
+
+  if (event.keyCode != 13) return;
+  if (!newItemValue) return;
+
+  listItems.push({ text: newItemValue, completed: false });
+  newItemElement.value = '';
+
+  updateList(listItems);
+}
+```
+
+*5.4 – the new `removeItem()` function*
+```js
+var removeItem = function(event) {
+  var clickedItemText = event.target.previousElementSibling.innerHTML;
+
+  listItems = listItems.filter(function(item) {
+    return clickedItemText != item.text;
+  });
+
+  updateList(listItems);
+}
+```
+
+With this important change, we are given the ability to store other informations in our task!
+
+Now we can implement the mark as done feature. We want this to happen: when the user clicks on a not-completed task, we want to turn it into a completed task, and when he clicks on a completed task, we want it to return to the not-completed state.
+
+A task can have two states: completed and not completed. This is a perfect fit for the `Boolean` value, and that’s the reason why we decided to use it.
+Another advantage of using a `Boolean` value is that it can be “inverted” easily, without checking its value first.
+
+Let’s add an `onclick` attribute to our task `<span>` element inside our template:
+
+```html
+<span onclick="toggleStatus(event)">_TEXT_</span>
+```
+
+...and create the corresponding function:
+
+*5.5 – the new `toggleStatus()` function*
+```js
+var toggleStatus = function(event) {
+  var clickedItemText = event.target.innerHTML;
+
+  listItems.forEach(function(item) {
+    if (clickedItemText == item.text) {
+      item.completed = !item.completed;
+    }
+  });
+
+  updateList(listItems);
+}
+```
+
+This function will cycle through each item contained in `listItems`, and when it finds an element with matching text, it will invert its `completed` property.
+
+**What we just did:**
+  * we changed our input data from a list of string to a list of objects
+  * we added a `toggleStatus()` function that inverts the `completed` property of the clicked task
 
 ## Step 6
-### Adding filters
+### Saving and loading our tasks with `localStorage`
 
 ## Step 7
-### Saving and loading our tasks with `localStorage`
+### Adding filters
+
+## Step 8
+### Updating counters
 
 ## It’s not a bug, it’s a feature!
 

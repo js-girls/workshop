@@ -1,5 +1,5 @@
 var loadList = function() {
-  if (localStorage['listItems']) return JSON.parse(localStorage['listItems']);
+  if (localStorage.listItems) return JSON.parse(localStorage.listItems);
 
   return [
     { text: 'Buy coffee',  completed: true  },
@@ -17,20 +17,17 @@ var updateList = function(items, save) {
     listElement.innerHTML += renderItem(item);
   });
 
-  if (save) localStorage['listItems'] = JSON.stringify(items);
+  if (save) localStorage.listItems = JSON.stringify(items);
 
   updateCounters();
 }
 
 var renderItem = function(item) {
   var template = document.querySelector('#item-template').innerHTML;
-  var classAttr = ['list-group-item'];
-
-  if (item['completed']) { classAttr.push('completed'); }
 
   return template
-    .replace('_TEXT_', item['text'])
-    .replace('_CLASS_', classAttr.join(' '));
+    .replace('_TEXT_', item.text)
+    .replace('_COMPLETED_', item.completed);
 }
 
 var createNew = function(event) {
@@ -50,7 +47,7 @@ var removeItem = function(event) {
   var clickedItemText = event.target.previousElementSibling.innerHTML;
 
   listItems = listItems.filter(function(item) {
-    return clickedItemText != item['text'];
+    return clickedItemText != item.text;
   });
 
   updateList(listItems, true);
@@ -60,8 +57,8 @@ var toggleStatus = function(event) {
   var clickedItemText = event.target.innerHTML;
 
   listItems.forEach(function(item) {
-    if (clickedItemText == item['text']) {
-      item['completed'] = !item['completed'];
+    if (clickedItemText == item.text) {
+      item.completed = !item.completed;
     }
   });
 
@@ -73,11 +70,11 @@ var filterItems = function(status) {
 
   if (status == 'completed') {
     itemsToShow = listItems.filter(function(item) {
-      return item['completed'];
+      return item.completed;
     });
   } else if (status == 'active') {
     itemsToShow = listItems.filter(function(item) {
-      return !item['completed'];
+      return !item.completed;
     });
   } else {
     itemsToShow = listItems;
@@ -88,7 +85,7 @@ var filterItems = function(status) {
 
 var clearCompleted = function() {
   listItems = listItems.filter(function(item) {
-    return !item['completed'];
+    return !item.completed;
   });
 
   updateList(listItems, true);
@@ -98,7 +95,7 @@ var updateCounters = function() {
   var completedCount = 0;
 
   listItems.forEach(function(item) {
-    if (item['completed']) completedCount++;
+    if (item.completed) completedCount++;
   });
 
   document.querySelector('.filter-all').dataset.count = listItems.length;
