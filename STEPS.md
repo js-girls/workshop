@@ -358,7 +358,7 @@ Now let's turn our template item into this:
 
 ```html
 <li class="_CLASS_">
-  <span class="item-text" onclick="toggleStatus(event)">_TEXT_</span>
+  <span class="item-text">_TEXT_</span>
   <button class="close" onclick="removeItem(event)">×</button>
 </li>
 ```

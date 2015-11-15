@@ -22,7 +22,7 @@ h2 {
   overflow: auto;
 }
 
-.item-text {
+.list-group-item > span {
   position: relative;
   float: left;
   max-width: 90%;
@@ -31,7 +31,7 @@ h2 {
   padding-left: 25px;
 }
 
-.item-text::before {
+.list-group-item > span::before {
   content: '';
   display: inline-block;
   width: 13px;
@@ -49,11 +49,11 @@ h2 {
   background-color: #f5f5f5;
 }
 
-.completed span {
+.completed > span {
   text-decoration: line-through;
 }
 
-.completed .item-text::before {
+.completed > span::before {
   border: 2px solid #fff;
   background-color: #999;
 }
@@ -64,6 +64,6 @@ h2 {
   color: #337ab7;
 }
 
-[data-count]:after {
+[data-count]::after {
   content: " (" attr(data-count) ")";
 }
