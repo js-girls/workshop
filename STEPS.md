@@ -487,6 +487,21 @@ This function will cycle through each item contained in `listItems`, and when it
 ## Step 6
 ### Saving and loading our tasks with `localStorage`
 
+Our app has now four basic features:
+* Shows us a list of tasks
+* Allows us to create new tasks
+* Allows us to remove tasks
+* Allows us to mark task as done
+
+But as you may have noticed, it is not capable of saving informations after we leave the page (or reload it). In a real life scenario, this task is often accomplished with a server: all the actions that we do on our page can be sent to a server that will save the data to a storage after some validation.
+But we don’t have a server, so we need to persist our tasks on our browser.
+
+This is possible with the `localStorage` API.
+
+`localStorage` is an object that we can use like a common JavaScript object, with two substantial differences:
+* it can only store strings
+* it can persist data for each domain between page reloads
+
 ## Step 7
 ### Adding filters
 
