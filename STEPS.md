@@ -639,9 +639,36 @@ updateList(listItems, true) // this will save our tasks.
 updateList(listItems) // this will not.
 ```
 
-Now we can use `updateList()` with the second parameter set to `true` when we want to save (in our `createNew()`, `removeItem()` and `toggleStatus()`), and without the second parameter when we want to filter.
+Now we can use `updateList()` with the second parameter set to `true` when we want to save (in our `createNew()`, `removeItem()` and `toggleStatus()`), and without the second parameter when we want to filter. This will make our filters work as we want.
 
+Go ahead and modify the `createNew()`, `removeItem()` and `toggleStatus()` functions by passing `true` as second parameter to the `updateList()` function call!
 
+### Adding a “Clear completed” button
+
+We also want to add a button that cleans up all completed tasks. Let’s add the markup to our panel footer:
+
+```html
+<button onclick="clearCompleted()" class="btn btn-default btn-xs pull-right">Clear completed</button>
+```
+
+The `onclick` handler will call a `clearCompleted()` function. Let’s create it:
+
+```js
+var clearCompleted = function() {
+  listItems = listItems.filter(function(item) {
+    return !item.completed;
+  });
+
+  updateList(listItems, true);
+}
+```
+
+Once again we will use the `filter()` function available on arrays for obtaining a copy of our `listItems` containing only elements that are not completed. After, we will call `updateList()` as usual, saving our tasks to `localStorage`.
+
+**What we just did:**
+  * we added filter support by implementing a `filterItems()` function
+  * we modified our `updateList()` function by making it accept a new `save` parameter
+  * we added a “Clear completed” button that clears completed tasks
 
 ## Step 8
 ### Updating counters

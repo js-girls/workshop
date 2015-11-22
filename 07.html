@@ -107,7 +107,15 @@
         }
 
         updateList(itemsToShow);
-      };
+      }
+
+      var clearCompleted = function() {
+        listItems = listItems.filter(function(item) {
+          return !item.completed;
+        });
+
+        updateList(listItems, true);
+      }
 
       var listItems = loadList();
 
