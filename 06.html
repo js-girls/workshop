@@ -56,7 +56,7 @@
         if (event.keyCode != 13) return;
         if (!newItemValue) return;
 
-        listItems.push({ text: newItemValue, completed: true });
+        listItems.push({ text: newItemValue, completed: false });
         newItemElement.value = '';
 
         updateList(listItems);
