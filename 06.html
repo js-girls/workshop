@@ -20,11 +20,15 @@
       <ul id="task-list" class="list-group"></ul>
     </div>
     <script>
-      var listItems = [
-        { text: 'Buy coffee',  completed: true  },
-        { text: 'Buy milk',    completed: false },
-        { text: 'Disco dance', completed: false }
-      ];
+      var loadList = function() {
+        if (localStorage.listItems) return JSON.parse(localStorage.listItems);
+
+        return [
+          { text: 'Buy coffee',  completed: true  },
+          { text: 'Buy milk',    completed: false },
+          { text: 'Disco dance', completed: false }
+        ];
+      }
 
       var updateList = function(items) {
         var listElement = document.querySelector('#task-list');
@@ -33,6 +37,8 @@
         items.forEach(function(item) {
           listElement.innerHTML += renderItem(item);
         });
+
+        localStorage.listItems = JSON.stringify(items);
       }
 
       var renderItem = function(item) {
@@ -77,6 +83,8 @@
 
         updateList(listItems);
       }
+
+      var listItems = loadList();
 
       updateList(listItems);
     </script>
