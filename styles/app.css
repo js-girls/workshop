@@ -1,8 +1,8 @@
-@import url('vendor/bootstrap.min.css');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css');
 @import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
 
 body {
-  background: url('../images/background.png') center;
+  background: url('background.png') center;
   padding: 0 20px;
 }
 
