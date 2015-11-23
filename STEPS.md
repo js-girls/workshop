@@ -1,7 +1,7 @@
 # How to Build Awesome Tasks
 
 This document describes how to build Awesome Tasks step by step.
-We will be introducing new concepts on each step, so make sure you understand what's going on before going further!
+We will be introducing new concepts on each step so make sure you understand what's going on before going further!
 If you have any doubts, please ask your coach for help!
 
 ## Step 1
