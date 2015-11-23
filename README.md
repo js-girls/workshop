@@ -7,7 +7,7 @@ A simple JavaScript app that will help you getting things done.
 In order to understand the code of this simple app, you will need to grasp these concepts:
 
 ### JavaScript
-  * Base values: `String`, `Integer`, `Boolean`, undefined values
+  * Base values: `String`, `Number`, `Boolean`, undefined values
   * Variables and functions
   * Compound values: `Array` and `Object`
   * Language Structure: `if`
