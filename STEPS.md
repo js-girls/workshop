@@ -1,4 +1,4 @@
-# How to build Awesome Tasks
+# How to Build Awesome Tasks
 
 This document describes how to build Awesome Tasks step by step.
 We will be introducing new concepts on each step, so make sure you understand what's going on before going further!
@@ -27,9 +27,9 @@ We will start with a new HTML file called `index.html`. We will use it as the sk
 </html>
 ```
 
-If you open this file in a web browser, you will see a pretty boring HTML page that shows a title and a static list of things to do. Not that much, to be honest!
+If you open this file in a web browser, you will see a pretty boring HTML page that shows a title and a static list of things to do. Not that much to be honest!
 
-The first thing we are going to do will be taking control of the task list: we will use JavaScript for adding a new task.
+The first thing we are going to do is to take control of the task list; we will use JavaScript for adding a new task.
 
 Before `</body>`, let’s add this:
 
@@ -41,7 +41,7 @@ Before `</body>`, let’s add this:
 </script>
 ```
 
-If we reload the page now, we will see a new task popping up in our list: it comes straight from JavaScript!
+If we reload the page now, we will see a new task pop up in our list and it comes straight from JavaScript!
 
 **What we just did:**
   * We used the `document.querySelector()` DOM API to access our `#task-list` element
@@ -112,10 +112,10 @@ And the output? Well, the output is the HTML that displays our tasks. Simple!
 </ul>
 ```
 
-Actually, we could consider the entire page as the output, but for now let’s focus on the task list.
+We could actually consider the entire page as the output, but for now let’s focus on the task list.
 
 Our logic is doing just one thing: rendering a list of items.
-Let’s create a `function` for this: later we will be adding and removing items to our list (we will modify our data), so having a dedicated piece of code that takes care of updating our output will come in handy.
+Let’s create a `function` for this; later we will be adding and removing items to our list (we will modify our data), so having a dedicated piece of code that takes care of updating our output will come in handy.
 
 *2.4 — the `updateList()` function*
 ```html
@@ -137,7 +137,7 @@ Let’s create a `function` for this: later we will be adding and removing items
 ```
 
 ### Function? Uh?
-A function is just a piece of code that we can use multiple times. Functions are perfect for avoiding repetition in our code, and to give structure to a JavaScript application.
+A function is just a piece of code that we can use multiple times. Functions are perfect for avoiding repetition in our code and to give structure to a JavaScript application.
 
 Note that first we are **defining** a function (`var updateList = function(…)`), and after we are **calling** it (`updateList(…)`).
 This is an important concept to understand: when we *define* a function, nothing visible happens. We are simply creating a “magic word”
@@ -229,7 +229,7 @@ Let's look at the code of our items:
   <li>Buy coffee</li>
 ```
 
-Very simple markup: the only thing it contains is the text of the task.
+Very simple markup; the only thing it contains is the text of the task.
 
 Now we need something like this:
 
@@ -250,8 +250,8 @@ Let’s take a look at how we are currently rendering the task item inside the `
 listElement.innerHTML += '<li>' + item + '</li>';
 ```
 
-We are doing something very simple to obtain a new task item element: we are concatenating three strings: `<li>`, the item text and `</li>`.
-As we saw above, now we need something slightly more complex: it's time to move this rendering logic into a new function:
+We are doing something very simple to obtain a new task item element; we are connecting three strings: `<li>`, the item text and `</li>`.
+As we saw above, now we need something slightly more complex; it's time to move this rendering logic into a new function:
 
 *4.4 — A simple `renderItem()` function*
 ```js
@@ -265,9 +265,9 @@ var renderItem = function(itemText) {
 listElement.innerHTML += renderItem(item);
 ```
 
-The end result didn’t change yet, but now we built a dedicated place that will contain all the *logic* we need for transforming an *input* (the task item text) to an *output* (the task item HTML markup).
+The end result hasn't change yet, but we have built a dedicated place that will contain all the *logic* we need for transforming an *input* (the task item text) to an *output* (the task item HTML markup).
 
-Now we have some work to do inside the `renderItem()` function: we have to change our output from what we have now (see *4.1*) to what we need (see *4.2*).
+Now we have some work to do inside the `renderItem()` function. We have to change our output from what we have now (see *4.1*) to what we need (see *4.2*).
 To do this, we will leverage a widely used concept in HTML programming: the templates.
 
 ### Key concepts: templates and placeholders
@@ -285,7 +285,7 @@ Let’s create our first template. Before the `</head>` tag, let’s add this ma
 </script>
 ```
 
-We added a `<script>` element (with type `text/html`) that we are using just for storing some HTML (our template string): this element is not displayed in our page (because `<script>` elements are never displayed) and the browser will not try to run the code inside it, because the type we specified is not executable.
+We added a `<script>` element (with type `text/html`) that we are using just for storing some HTML (our template string). This element is not displayed in our page (because `<script>` elements are never displayed) and the browser will not try to run the code inside it because the type we specified is not executable.
 Just think of this element as a “container of text”.
 
 The template HTML contains a placeholder string (`_TEXT_`) that we will replace with real value shortly.
@@ -301,7 +301,7 @@ var renderItem = function(itemText) {
 }
 ```
 
-Cool! Now the markup of each element is changed, and a little button is showing next to each of our task items.
+Cool! Now the markup of each element is changed and a little button is shown next to each of our task items.
 But if we click on that button, nothing happens. Let’s fix this!
 
 We need to create a `removeItem()` function (as we wrote in the `onclick` attribute of our button), that will:
@@ -324,12 +324,12 @@ var removeItem = function(event) {
 }
 ```
 
-The first thing to notice here is that the `removeItem()` function does not *automatically* know which is task we want to remove.
-For JavaScript, what happened is: a button received a click. What happens from now on is completely in our hands.
+The first thing to notice here is that the `removeItem()` function does not *automatically* know which task we want to remove.
+For JavaScript, what happened is that a button received a click. What happens from now on is completely in our hands.
 
-The way we get to the clicked task text is by accessing the `event` object, that is generated by the browser each time a user is interacting with an element (eg. clicking on it). In the `event` object we can find a lot of useful informations: for example the element that received the click (called `target`: our button).
+The way we get to the clicked task text is by accessing the `event` object, which is generated by the browser each time a user is interacting with an element (eg. clicking on it). In the `event` object we can find a lot of useful information. For example, the element that received the click (called `target`: our button).
 
-If we look at the markup, we can notice that our button is at the same level of our `span`, and comes right after it: they are siblings.
+If we look at the markup, we notice that our button is at the same level of our `span`, and comes right after it; they are siblings.
 We want to reach the previous element sibling of the button and read its inner HTML. We do this by calling `previousElementSibling` on the `event.target`.
 
 After, we use the `filter()` method on our `listItems` array to obtain a new copy of our list that does not contain the task we are removing.
@@ -345,7 +345,7 @@ The last step of our `removeItem()` function will be displaying this new list by
 
 Time has finally come to make our little app look less ugly!
 
-We will not be adding new features during this step, but our app will look way better after some little changes in the markup and after we link our stylesheet.
+We will not be adding new features during this step but our app will look much better after some small changes in the markup and after we link our stylesheet.
 We will not go through the CSS rules – CSS is a whole new argument and it is beyond the scope of today’s workshop, but feel free to ask your coach for resources if you are interested.
 
 Let’s create a `<link>` tag that points to our CSS file: place this code after the `<title>` tag, inside `<head>`.
@@ -376,8 +376,8 @@ And between the app title `<h2>` and the `<script>` tag let's replace everything
 </div>
 ```
 
-Notice that we preserved all the previous elements, and we added some more elements and classes.
-In this way we gave a better structure to our markup: we created a box that contains our tasks list, and a dedicated box that contains our input field.
+Notice that we preserved all the previous elements and we added some more elements and classes.
+This way we gave a better structure to our markup. We created a box that contains our tasks list, plus a dedicated box that contains our input field.
 
 ## Step 5
 ### Marking items as done
@@ -385,7 +385,7 @@ In this way we gave a better structure to our markup: we created a box that cont
 The next feature of our app will be marking items as done. To do this we need to rethink how we are representing our task items.
 
 What we now call “a task” is a simple string in our code (a base value), and we cannot store other informations there.
-We need to find a new way for representing our task: something that allows us to store other informations together with the text of the task, for example whether this task is completed or not. What we need here is a compound value, so we can group more than one value in a single entity. In JavaScript there are two compound values: `Array` (which we already know), and `Object`. Let’s use an `Object`.
+We need to find a new way for representing our task, something that allows us to store other information together with the text of the task (e.g. whether the task is completed or not completed). What we need here is a compound value so we can group more than one value in a single entity. In JavaScript there are two compound values: `Array` (which we already know), and `Object`. Let’s use an `Object`.
 
 Our task list will now become something like this:
 
@@ -407,7 +407,7 @@ console.log(item.text); // will print 'Example task'
 console.log(item.completed); // will print true
 ```
 
-This is an important change in our app: we are changing the input data, and this forces us to modify our logic accordingly – otherwise our app will not work anymore.
+This is an important change in our app. We are changing the input data and this forces us to modify our logic accordingly – otherwise our app will no longer work.
 
 Let’s modify our functions to be compatible with this new input format.
 
@@ -448,9 +448,9 @@ var removeItem = function(event) {
 }
 ```
 
-With this important change, we are given the ability to store other informations in our task!
+With this important change, we are given the ability to store other information in our task!
 
-Now we can implement the mark as done feature. We want this to happen: when the user clicks on a not-completed task, we want to turn it into a completed task, and when he clicks on a completed task, we want it to return to the not-completed state.
+Now we can implement the mark as done feature. The following is what we want to happen: when the user clicks on a incomplete task, we want to turn it into a completed task, and when he clicks on a completed task, we want it to return to the incomplete state.
 
 A task can have two states: completed and not completed. This is a perfect fit for the `Boolean` value, and that’s the reason why we decided to use it.
 Another advantage of using a `Boolean` value is that it can be “inverted” easily, without checking its value first.
@@ -493,7 +493,7 @@ Our app has now four basic features:
 * Allows us to remove tasks
 * Allows us to mark task as done
 
-But as you may have noticed, it is not capable of saving informations after we leave the page (or reload it). In a real life scenario, this task is often accomplished with a server: all the actions that we do on our page can be sent to a server that will save the data to a storage after some validation. But we don’t have a server, so we need to persist our tasks on our browser.
+But as you may have noticed, it is not capable of saving information after we leave the page (or reload it). In a real life scenario, this task is often accomplished with a server. All the actions that we do on our page can be sent to a server that will save the data to a storage after some validation. But we don’t have a server, so we need to persist our tasks on our browser.
 
 This is possible with the `localStorage` API.
 
@@ -501,7 +501,7 @@ This is possible with the `localStorage` API.
 * it can only store strings
 * it can persist data for each domain between page reloads
 
-What we want to persist is our `listItems` array. Since `localStorage` is only capable of storing strings, we need to transform our `listItems` array into a string before saving it. It's a bit like we are "freezing" our data.
+What we want to persist is our `listItems` array. Since `localStorage` is only capable of storing strings, we need to transform our `listItems` array into a string before saving it. It is as though we are "freezing" our data.
 
 This can be easily done by turning our array into a JSON string, by using `JSON.stringify()`:
 
@@ -543,7 +543,7 @@ var updateList = function(items) {
 
 Now, each time we call `updateList()`, we will save our items into `localStorage`.
 
-But this is not enough: when we open the page, we also need to load this data. Our initial data now is an array that contains three tasks.
+However this is not enough. When we open the page, we also need to load this data. Our initial data now is an array that contains three tasks.
 Let’s change this by creating a new function that will try to load data from `localStorage`:
 
 *6.2 – the new `loadList()` function*
@@ -588,7 +588,7 @@ The first thing we need to do is adding some markup for our filter buttons. Let�
 </div>
 ```
 
-We added some button with an `onclick` handler that will execute a `filterItems()` function. Let’s create that function:
+We added a button with an `onclick` handler that will execute a `filterItems()` function. Let’s create that function:
 
 *7.1– the new `filterItems()` function*
 ```js
@@ -613,7 +613,7 @@ var filterItems = function(status) {
 
 This function will call `updateList()` by passing a list of `itemsToShow` that we create using the array `filter()` function.
 
-But there’s a catch: `updateList()` will also save our tasks each time we call it!
+But there’s a catch, `updateList()` will also save our tasks each time we call it!
 We want this to happen when we *modify* our task list (for example adding, deleting, and marking items as done), but we don’t want this if we are simply applying a filter.
 
 What can we do to avoid this? The solution is to modify our `updateList()` function for accepting a second parameter, that we will call `save`.
@@ -666,9 +666,9 @@ var clearCompleted = function() {
 Once again we will use the `filter()` function available on arrays for obtaining a copy of our `listItems` containing only elements that are not completed. After, we will call `updateList()` as usual, saving our tasks to `localStorage`.
 
 **What we just did:**
-  * we added filter support by implementing a `filterItems()` function
-  * we modified our `updateList()` function by making it accept a new `save` parameter
-  * we added a “Clear completed” button that clears completed tasks
+  * added filter support by implementing a `filterItems()` function
+  * modified our `updateList()` function by making it accept a new `save` parameter
+  * added a “Clear completed” button that clears completed tasks
 
 ## Step 8
 ### Updating counters
