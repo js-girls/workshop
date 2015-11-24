@@ -15,7 +15,8 @@
     <h2>Awesome Tasks</h2>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <input onkeyup="createNew(event)" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
+        <input id="new-item" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
+        <button onclick="createNew(event)" class="btn btn-primary">Add</button>
       </div>
       <ul id="task-list" class="list-group"></ul>
       <div class="panel-footer small">

@@ -67,3 +67,7 @@ h2 {
 [data-count]::after {
   content: " (" attr(data-count) ")";
 }
+
+.panel-heading {
+  display: flex;
+}
