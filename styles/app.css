@@ -17,6 +17,21 @@ h2 {
   margin: 20px auto;
 }
 
+.panel-heading {
+  display: flex;
+}
+
+.panel-heading input {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.panel-heading button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .list-group-item {
   padding: 20px;
   overflow: auto;
@@ -66,8 +81,4 @@ h2 {
 
 [data-count]::after {
   content: " (" attr(data-count) ")";
-}
-
-.panel-heading {
-  display: flex;
 }
