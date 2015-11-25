@@ -160,18 +160,18 @@ Before our `<ul>` element, let’s add this HTML code:
 
 *3.1 — The new item input*
 ```html
-<input onkeyup="createNew(event)" placeholder="Add a new task...">
+<input placeholder="Add a new task...">
+<button onclick="createNew(event)">Add</button>
 ```
 
-Every time the user types some text inside our newly created input field, the function specified in the `onkeyup` attribute will be called for us. So let’s add a `createNew()` function after `updateList()` for capturing what the user just typed!
+We just added an input field and a button to our page. We want to create a new task with the text that the user writes in the input field, and we want this to happen when he clicks on the “Add” button; so let’s add a `createNew()` function (after `updateList()`) for capturing what the user just typed!
 
 *3.2 — The `createNew` function*
 ```js
 var createNew = function(event) {
-  var newItemElement = event.target;
+  var newItemElement = document.querySelector('#new-item');
   var newItemValue = newItemElement.value.trim();
 
-  if (event.keyCode != 13) return;
   if (!newItemValue) return;
 
   listItems.push(newItemValue);
@@ -186,9 +186,7 @@ This function does three things:
   * cleans up the text field
   * calls the `updateList()` function for displaying the newly created item.
 
-Of course we actually want to save the new task only when the user presses the Return key. We can find the `keyCode` of the pressed key inside the `event` object, and we can easily stop the execution of the function with the `return` statement if the key pressed by the user is different from the Enter key (whose code is 13).
-
-One more thing! Our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
+Our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
 
 This is easily done by adding this line before the `forEach()` call:
 
@@ -214,7 +212,7 @@ var updateList = function(items) {
 Great! Now we are able to add as many task as we want!
 
 **What we just did:**
-  * We added a `input` field for accepting new tasks
+  * We added a `input` field and a `button` for creating new tasks
   * We created a `createNew()` function that adds a new task and updates our list.
 
 ## Step 4
@@ -370,7 +368,8 @@ And between the app title `<h2>` and the `<script>` tag let's replace everything
 ```html
 <div class="panel panel-default">
   <div class="panel-heading">
-    <input onkeyup="createNew(event)" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
+    <input id="new-item" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
+    <button onclick="createNew(event)" class="btn btn-primary">Add</button>
   </div>
   <ul id="task-list" class="list-group"></ul>
 </div>
@@ -422,10 +421,9 @@ var renderItem = function(item) {
 *5.3 – the new `createNew()` function*
 ```js
 var createNew = function(event) {
-  var newItemElement = event.target;
+  var newItemElement = document.querySelector('#new-item');
   var newItemValue = newItemElement.value.trim();
 
-  if (event.keyCode != 13) return;
   if (!newItemValue) return;
 
   listItems.push({ text: newItemValue, completed: false });

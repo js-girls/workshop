@@ -6,7 +6,8 @@
   </head>
   <body>
     <h2>Awesome Tasks</h2>
-    <input onkeyup="createNew(event)" placeholder="Add a new task...">
+    <input id="new-item" placeholder="Add a new task...">
+    <button onclick="createNew(event)">Add</button>
     <ul id="task-list"></ul>
     <script>
       var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
@@ -21,10 +22,9 @@
       }
 
       var createNew = function(event) {
-        var newItemElement = event.target;
+        var newItemElement = document.querySelector('#new-item');
         var newItemValue = newItemElement.value.trim();
 
-        if (event.keyCode != 13) return;
         if (!newItemValue) return;
 
         listItems.push(newItemValue);
