@@ -605,7 +605,7 @@ The first thing we need to do is adding some markup for our filter buttons. Letâ
 *7.1 â€“ the filters markup*
 ```html
 <div class="panel-footer small">
-  <span>Filter:</span>
+  <span>Show:</span>
   <button onclick="filterItems()" class="filter filter-all">All</button>
   <button onclick="filterItems('active')" class="filter filter-active">Active</button>
   <button onclick="filterItems('completed')" class="filter filter-completed">Completed</button>
