@@ -578,7 +578,7 @@ Now we want to add some filters to show all, only active or only completed tasks
 
 The first thing we need to do is adding some markup for our filter buttons. Let’s add the following HTML under `<ul id="task-list" class="list-group"></ul>`:
 
-*7.1– the filters markup*
+*7.1 – the filters markup*
 ```html
 <div class="panel-footer small">
   <span>Filter:</span>
@@ -590,7 +590,7 @@ The first thing we need to do is adding some markup for our filter buttons. Let�
 
 We added a button with an `onclick` handler that will execute a `filterItems()` function. Let’s create that function:
 
-*7.1– the new `filterItems()` function*
+*7.2 – the new `filterItems()` function*
 ```js
 var filterItems = function(status) {
   var itemsToShow = [];
@@ -618,6 +618,7 @@ We want this to happen when we *modify* our task list (for example adding, delet
 
 What can we do to avoid this? The solution is to modify our `updateList()` function for accepting a second parameter, that we will call `save`.
 
+*7.3 – the updated `updateList()` function*
 ```js
 var updateList = function(items, save) {
   var listElement = document.querySelector('#task-list');
@@ -653,6 +654,7 @@ We also want to add a button that cleans up all completed tasks. Let’s add the
 
 The `onclick` handler will call a `clearCompleted()` function. Let’s create it:
 
+*7.4 – the new `clearCompleted()` function*
 ```js
 var clearCompleted = function() {
   listItems = listItems.filter(function(item) {
@@ -666,15 +668,76 @@ var clearCompleted = function() {
 Once again we will use the `filter()` function available on arrays for obtaining a copy of our `listItems` containing only elements that are not completed. After, we will call `updateList()` as usual, saving our tasks to `localStorage`.
 
 **What we just did:**
-  * added filter support by implementing a `filterItems()` function
-  * modified our `updateList()` function by making it accept a new `save` parameter
-  * added a “Clear completed” button that clears completed tasks
+  * we added filter support by implementing a `filterItems()` function
+  * we modified our `updateList()` function by making it accept a new `save` parameter
+  * we added a “Clear completed” button that clears completed tasks
 
 ## Step 8
 ### Updating counters
+
+The last thing we’re going to do is adding some counters next to our filters: we want to show how many task we have in total, how many of them are completed and how many are not.
+
+To do this, we need a new function that needs to be called each time we call `updateList()`.
+
+Let’s create it:
+
+*8.1 – the new `updateCounters()` function*
+```js
+var updateCounters = function() {
+  var completedCount = 0;
+
+  listItems.forEach(function(item) {
+    if (item.completed) completedCount++;
+  });
+
+  document.querySelector('.filter-all').dataset.count = listItems.length;
+  document.querySelector('.filter-active').dataset.count = listItems.length - completedCount;
+  document.querySelector('.filter-completed').dataset.count = completedCount;
+}
+```
+
+The first thing we do in this function is to create a `completedCount` variable that is initially set to `0`.
+
+Then we loop through our `listItems` array using `forEach()`: we increment the `completedCount` counter each time we find a task that is completed. We do this by using the `++` operator: it will simply add `1` to the current value of `completedCount`.
+
+Finally we will use the `dataset` property of our DOM element to store informations. When we use `dataset`, a new `data-count` attribute will automatically be created for us on the element. The data we save in this attribute will then be shown via a CSS pseudo element.
+
+Last touch: we need to update our `updateList()` function by adding the `updateCounters()` function call at the end.
+
+*8.1 – the updated `updateList()` function*
+```js
+var updateList = function(items, save) {
+  var listElement = document.querySelector('#task-list');
+  listElement.innerHTML = '';
+
+  items.forEach(function(item) {
+    listElement.innerHTML += renderItem(item);
+  });
+
+  if (save) localStorage.listItems = JSON.stringify(items);
+
+  updateCounters(); // new line added
+}
+```
+
+Now, our counters will be updated each time we do something on our task list!
+
+**What we just did:**
+  * we created a `updateCounters()` function that will show counters next to each filter
+  * we modified our `updateList()` function by making it call `updateCounters()`
 
 ## It’s not a bug, it’s a feature!
 
 Writing code without bugs is very hard (if not impossible), and our little app contains (at least) one of them.
 
 * We can add multiple items with the exact same text (not exactly a bug), but when we interact with one of those, our action is ran against all the duplicates!
+
+How can we avoid this?
+
+## From Awesome Task to the next big thing!
+
+We hope this little walkthrough helped you understanding some basic web programming concepts.
+There is a lot of things to learn, but fear not! There is also an impressive number of great resources that will help you learn fast.
+Programming is a great way to express yourself: it gives you the power to create things by simply writing.
+
+Want to learn more? [Start here](http://jsforcats.com/)!
