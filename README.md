@@ -21,7 +21,7 @@ During the workshop we will be covering the following concepts:
 ### Persistence on the browser
   * `JSON` and `localStorage`
 
-There are some new concepts to learn, and we are sure you will enjoy this experience!
+There are many new things to learn if this is your first programming experience, and we really hope you will enjoy it!
 
 # Building Awesome Tasks step by step
 
