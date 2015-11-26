@@ -186,7 +186,7 @@ Before our `<ul>` element, let’s add this HTML code:
 
 *3.1 — The new item input*
 ```html
-<input placeholder="Add a new task...">
+<input id="new-item" placeholder="Add a new task...">
 <button onclick="createNew(event)">Add</button>
 ```
 
