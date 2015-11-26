@@ -16,7 +16,7 @@ var filteredArray = myArray.filter(function(num) {
 // filteredArray is [5, 6, 10]
 ```
 
-##### .forEach(callback) ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
+#### .forEach(callback) ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
 Allows to execute a `function` on each and every element of the Array.
 
 Example:
