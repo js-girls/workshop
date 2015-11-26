@@ -604,7 +604,7 @@ The first thing we need to do is adding some markup for our filter buttons. Let�
 
 *7.1 – the filters markup*
 ```html
-<div class="panel-footer small">
+<div class="panel-footer text-center small">
   <span>Show:</span>
   <button onclick="filterItems()" class="filter filter-all">All</button>
   <button onclick="filterItems('active')" class="filter filter-active">Active</button>
@@ -673,7 +673,8 @@ Go ahead and modify the `createNew()`, `removeItem()` and `toggleStatus()` funct
 We also want to add a button that cleans up all completed tasks. Let’s add the markup to our panel footer:
 
 ```html
-<button onclick="clearCompleted()" class="btn btn-default btn-xs pull-right">Clear completed</button>
+<hr>
+<button onclick="clearCompleted()" class="btn btn-default btn-xs">Clear completed</button>
 ```
 
 The `onclick` handler will call a `clearCompleted()` function. Let’s create it:
