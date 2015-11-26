@@ -20,12 +20,13 @@
         <button onclick="createNew(event)" class="btn btn-primary">Add</button>
       </div>
       <ul id="task-list" class="list-group"></ul>
-      <div class="panel-footer small">
-        <span>Filter:</span>
+      <div class="panel-footer text-center small">
+        <span>Show:</span>
         <button onclick="filterItems()" class="filter filter-all">All</button>
         <button onclick="filterItems('active')" class="filter filter-active">Active</button>
         <button onclick="filterItems('completed')" class="filter filter-completed">Completed</button>
-        <button onclick="clearCompleted()" class="btn btn-default btn-xs pull-right">Clear completed</button>
+        <hr>
+        <button onclick="clearCompleted()" class="btn btn-default btn-xs">Clear completed</button>
       </div>
     </div>
     <script>
