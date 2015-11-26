@@ -61,7 +61,7 @@ var myString = 'This and that';
 
 var newString = myString.replace('and', 'or');
 
-// myString is 'This or that'
+// newString is 'This or that'
 ```
 
 #### .trim() ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim))
@@ -85,14 +85,17 @@ Converts a JSON string into a Javascript Object.
 var myObject = JSON.parse('{"type": "door", "state": "open"}');
 
 // myObject is { type: 'door', state: 'open' }
+```
 
 #### .stringify(object) ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify))
 Converts a Javascript Object into a JSON string.
 
+```
 var myObject = { type: 'door', state: 'open' };
 var jsonString = JSON.stringify(myObject);
 
 // jsonString is '{"type":"door","state":"open"}'
+```
 
 ## document
 
