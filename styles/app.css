@@ -64,7 +64,7 @@ h2 {
 }
 
 .panel-footer hr {
-  margin: 0 0 10px;
+  margin: 5px 0 10px;
 }
 
 [data-completed="true"] {
