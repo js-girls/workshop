@@ -16,7 +16,7 @@ During the workshop we will be covering the following concepts:
 
 ### The DOM
   * `Element` and some of its properties and methods (`querySelector`, `innerHTML`, `previousElementSibling`, `dataset`)
-  * The events and the event object main properties (`target`)
+  * The events and the event object main properties (`target`, `preventDefault`)
 
 ### Persistence on the browser
   * `JSON` and `localStorage`
@@ -186,15 +186,19 @@ Before our `<ul>` element, let’s add this HTML code:
 
 *3.1 — The new item input*
 ```html
-<input id="new-item" placeholder="Add a new task...">
-<button onclick="createNew(event)">Add</button>
+<form onsubmit="createNew(event)">
+  <input id="new-item" placeholder="Add a new task...">
+  <button>Add</button>
+</form>
 ```
 
-We just added an input field and a button to our page. We want to create a new task with the text that the user writes in the input field, and we want this to happen when he clicks on the “Add” button; so let’s add a `createNew()` function (after `updateList()`) for capturing what the user just typed!
+We just added a form with an input field and a button to our page. We want to create a new task with the text that the user writes in the input field, and we want this to happen when he submits the form by clicking on the “Add” button or pressing the Enter key; so let’s add a `createNew()` function (after `updateList()`) for capturing what the user just typed!
 
 *3.2 — The `createNew` function*
 ```js
 var createNew = function(event) {
+  event.preventDefault();
+
   var newItemElement = document.querySelector('#new-item');
   var newItemValue = newItemElement.value.trim();
 
@@ -212,7 +216,9 @@ This function does three things:
   * cleans up the text field
   * calls the `updateList()` function for displaying the newly created item.
 
-Our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
+A thing to notice here is `event.preventDefault()`. The browser will try to reload the page when the user submits a form, but we don’t want this to happen: so we call this function to avoid the page reload.
+
+Now our `updateList()` function needs to be updated, because if we will call it a second time we need to remove the previously rendered code.
 
 This is easily done by adding this line before the `forEach()` call:
 
@@ -393,10 +399,10 @@ And between the app title `<h2>` and the `<script>` tag let's replace everything
 
 ```html
 <div class="panel panel-default">
-  <div class="panel-heading">
+  <form onsubmit="createNew(event)" class="panel-heading">
     <input id="new-item" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
-    <button onclick="createNew(event)" class="btn btn-primary">Add</button>
-  </div>
+    <button class="btn btn-primary">Add</button>
+  </form>
   <ul id="task-list" class="list-group"></ul>
 </div>
 ```
@@ -447,6 +453,8 @@ var renderItem = function(item) {
 *5.3 – the new `createNew()` function*
 ```js
 var createNew = function(event) {
+  event.preventDefault();
+
   var newItemElement = document.querySelector('#new-item');
   var newItemValue = newItemElement.value.trim();
 

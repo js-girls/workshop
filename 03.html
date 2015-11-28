@@ -6,8 +6,10 @@
   </head>
   <body>
     <h2>Awesome Tasks</h2>
-    <input id="new-item" placeholder="Add a new task...">
-    <button onclick="createNew(event)">Add</button>
+    <form onsubmit="createNew(event)">
+      <input id="new-item" placeholder="Add a new task...">
+      <button>Add</button>
+    </form>
     <ul id="task-list"></ul>
     <script>
       var listItems = ['Buy coffee', 'Buy milk', 'Disco dance'];
@@ -22,6 +24,8 @@
       }
 
       var createNew = function(event) {
+        event.preventDefault();
+
         var newItemElement = document.querySelector('#new-item');
         var newItemValue = newItemElement.value.trim();
 

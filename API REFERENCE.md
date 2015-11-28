@@ -50,6 +50,9 @@ myArray.push(50);
 #### .target ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/API/Event/target))
 Returns the element on which the event was captured.
 
+#### .preventDefault() ([see in MDN](https://developer.mozilla.org/en/docs/Web/API/Event/preventDefault))
+Cancels the default event behavior.
+
 ## String
 
 #### .replace(pattern, replacement) ([see in MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace))

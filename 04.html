@@ -14,10 +14,10 @@
   <body>
     <h2>Awesome Tasks</h2>
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <form onsubmit="createNew(event)" class="panel-heading">
         <input id="new-item" class="form-control" placeholder="Add a new task..." autofocus="autofocus">
-        <button onclick="createNew(event)" class="btn btn-primary">Add</button>
-      </div>
+        <button class="btn btn-primary">Add</button>
+      </form>
       <ul id="task-list" class="list-group"></ul>
     </div>
     <script>
@@ -39,6 +39,8 @@
       }
 
       var createNew = function(event) {
+        event.preventDefault();
+
         var newItemElement = document.querySelector('#new-item');
         var newItemValue = newItemElement.value.trim();
 
