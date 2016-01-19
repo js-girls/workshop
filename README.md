@@ -31,4 +31,3 @@ We will be introducing new concepts on each step so make sure you understand wha
 If you have any doubts, please ask your coach for help.
 
 
-
