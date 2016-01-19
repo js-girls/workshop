@@ -29,7 +29,7 @@ During the workshop we will be covering the following concepts:
 
 There are many new things to learn if this is your first programming experience, and we really hope you will enjoy it!
 
-# Building Awesome Tasks step by step
+### Building Awesome Tasks step by step
 
 You can find all the detailed instructions in our [Workshop Manual](https://js-girls.gitbooks.io/workshop/content/).
 
