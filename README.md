@@ -25,9 +25,6 @@ There are many new things to learn if this is your first programming experience,
 
 # Building Awesome Tasks step by step
 
-This walkthrough will guide you through the development of the app.
-
-We will be introducing new concepts on each step so make sure you understand what's going on before going further!
-If you have any doubts, please ask your coach for help.
+You can find all the detailed instructions in our [Workshop Manual](https://js-girls.gitbooks.io/workshop/content/).
 
 
