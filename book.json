@@ -1,0 +1,16 @@
+{
+  "gitbook": "2.5.x",
+  "structure": {
+    "summary": "/docs/README.md"
+  },
+  "plugins": ["autocover", "github", "prism", "-highlight", "edit-link"],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/js-girls/awesome-tasks/"
+    },
+    "edit-link": {
+      "base": "https://github.com/js-girls/awesome-tasks/master",
+      "label": "Edit This Page"
+    }
+  }
+}
