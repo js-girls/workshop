@@ -2,6 +2,8 @@
 
 This is level is for girls who never wrote a single line of code.
 
+* [Intro](00-intro.md)
+* [Step 0](00-step0.md)
 * [Step 1](00-step1.md)
 * [Step 2](00-step2.md)
 * [Step 3](00-step3.md)
