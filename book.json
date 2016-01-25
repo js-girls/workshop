@@ -3,7 +3,7 @@
   "structure": {
     "summary": "/docs/README.md"
   },
-  "plugins": ["autocover", "github", "prism", "-highlight", "edit-link"],
+  "plugins": ["github", "prism", "-highlight", "edit-link"],
   "pluginsConfig": {
     "github": {
       "url": "https://github.com/js-girls/awesome-tasks/"
