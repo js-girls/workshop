@@ -1,6 +1,8 @@
 ## Table of Contents
 
 * [Level 0](/docs/level0/README.md)
+    * [Intro](/docs/level0/00-intro.md)
+    * [Step 0](/docs/level0/00-step0.md)
     * [Step 1](/docs/level0/00-step1.md)
     * [Step 2](/docs/level0/00-step2.md)
     * [Step 3](/docs/level0/00-step3.md)

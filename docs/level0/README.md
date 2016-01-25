@@ -9,7 +9,8 @@ This is level is for girls who never wrote a single line of code.
 * [Step 3](00-step3.md)
 * [Step 4](00-step4.md)
 * [Step 5](00-step5.md)
-* [Step 6](00-step6.md)
-* [Step 7](00-step7.md)
-* [Step 8](00-step8.md)
-* [Conclusions](00-conclusions.md)
+* Extras
+    * [Step 6](00-step6.md)
+    * [Step 7](00-step7.md)
+    * [Step 8](00-step8.md)
+    * [Conclusions](00-conclusions.md)
