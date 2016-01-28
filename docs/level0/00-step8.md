@@ -59,5 +59,3 @@ Writing code without bugs is very hard (if not impossible), and our little app c
 * We can add multiple items with the exact same text (not exactly a bug), but when we interact with one of those, our action is ran against all the duplicates!
 
 How can we avoid this?
-
-## From Awesome Task to the next big thing!
