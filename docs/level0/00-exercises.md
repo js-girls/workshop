@@ -15,4 +15,6 @@
   * Print the emails list. (use a div). [Solution](http://codepen.io/daldosso/pen/VeEgPd?editors=1111)
   * Print the emails list using forEach. [Solution](http://codepen.io/daldosso/pen/EPdrWX?editors=1111)
   
-
+* Step 03
+  * Try to use an "if", as you wish.  [Solution](http://codepen.io/daldosso/pen/ZQNOYN?editors=0011)
+  * Try to use an "if", reading a user input.  [Solution](http://codepen.io/daldosso/pen/gPJMPo?editors=1011)
