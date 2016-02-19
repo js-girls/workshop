@@ -18,3 +18,6 @@
 * Step 03
   * Try to use an "if", as you wish.  [Solution](http://codepen.io/daldosso/pen/ZQNOYN?editors=0011)
   * Try to use an "if", reading a user input.  [Solution](http://codepen.io/daldosso/pen/gPJMPo?editors=1011)
+  
+* Step 04
+  * Write a list of friends using an array and innerHTML. [Solution](http://codepen.io/daldosso/pen/obRdMa?editors=1010)  
