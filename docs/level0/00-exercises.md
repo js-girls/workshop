@@ -23,9 +23,8 @@
   * Write a list of friends using an array and innerHTML. [Solution](http://codepen.io/daldosso/pen/obRdMa?editors=1010)
   * Write a list of friends with a remove button. [Solution](http://codepen.io/daldosso/pen/dGBqXZ?editors=0010)
   * Write a list of friends using an unsigned list element <ul>. [Solution](http://codepen.io/daldosso/pen/VeJEaR?editors=0010)
-  * Write a list of friends using an unsigned list and a kind of template. [Solution](http://codepen.io/daldosso/pen/xZoyRa?editors=0010)
+  * Write a list of friends using a kind of template. [Solution](http://codepen.io/daldosso/pen/xZoyRa?editors=0010)
 
 * Step 05
   * Write a onclick event for the remove buttons. [Solution](http://codepen.io/daldosso/pen/dGBqXZ?editors=0010)
   * In the onclick event use the console to write the clicked email.  [Solution](http://codepen.io/daldosso/pen/RrzYKJ?editors=0011)
-  
