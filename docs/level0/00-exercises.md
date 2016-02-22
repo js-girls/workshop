@@ -31,3 +31,13 @@
   * Write a function that create your email list of friends. [Solution](http://codepen.io/daldosso/pen/BjgqdK?editors=0010)
   * Change your array of emails in an array of objects with a removed attribute. [Solution](http://codepen.io/daldosso/pen/xZoQwv?editors=0011)
   * Write a function that remove an email. [Solution](http://codepen.io/daldosso/pen/YwoRWW?editors=0011)
+ 
+* Step 06
+  * Save your friends list in the localStorage. [Solution](http://codepen.io/daldosso/pen/KVjrQr?editors=0011)
+  
+* Step 07
+  * Add a button to show the removed friends. [Solution](http://codepen.io/daldosso/pen/yedQjw?editors=0011)
+
+* Step 08
+  * Show the number of active and removed friends. [Solution](http://codepen.io/daldosso/pen/QyXJeo?editors=1001)
+  
