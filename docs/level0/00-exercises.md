@@ -38,7 +38,9 @@
   
 * Step 07
   * Add a button to show the removed friends. [Solution](http://codepen.io/daldosso/pen/yedQjw?editors=0011)
+  * Insert an input to ask at the user a new email to add. [Solution](http://codepen.io/daldosso/pen/gPNyqy?editors=0011)
 
 * Step 08
   * Show the number of active and removed friends. [Solution](http://codepen.io/daldosso/pen/QyXJeo?editors=1001)
+  * Starting from the new email exercise, check that the new email is not empty, use an alert (I know it's very old school). [Solution](http://codepen.io/daldosso/pen/yedrWV?editors=0011)
   
