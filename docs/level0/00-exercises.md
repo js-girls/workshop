@@ -29,4 +29,5 @@
   * Write a onclick event for the remove buttons. [Solution](http://codepen.io/daldosso/pen/dGBqXZ?editors=0010)
   * In the onclick event use the console to write the clicked email. [Solution](http://codepen.io/daldosso/pen/RrzYKJ?editors=0011)
   * Write a function that create your email list of friends. [Solution](http://codepen.io/daldosso/pen/BjgqdK?editors=0010)
-  * Write a function that remove an email. [Solution](http://codepen.io/daldosso/pen/RrzYKJ?editors=0011)
+  * Change your array of emails in an array of objects with a removed attribute. [Solution](http://codepen.io/daldosso/pen/xZoQwv?editors=0011)
+  * Write a function that remove an email. [Solution](http://codepen.io/daldosso/pen/YwoRWW?editors=0011)
