@@ -34,6 +34,7 @@
  
 * Step 06
   * Save your friends list in the localStorage. [Solution](http://codepen.io/daldosso/pen/KVjrQr?editors=0011)
+  * Load your friends list from the localStorage (if exists). [Solution](http://codepen.io/daldosso/pen/gPNqwO?editors=0011)
   
 * Step 07
   * Add a button to show the removed friends. [Solution](http://codepen.io/daldosso/pen/yedQjw?editors=0011)
