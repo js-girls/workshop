@@ -22,7 +22,7 @@
 * Step 04
   * Write a list of friends using an array and innerHTML. [Solution](http://codepen.io/daldosso/pen/obRdMa?editors=1010)
   * Write a list of friends with a remove button. [Solution](http://codepen.io/daldosso/pen/dGBqXZ?editors=0010)
-  * Write a list of friends using an unsigned list element <ul>. [Solution](http://codepen.io/daldosso/pen/VeJEaR?editors=0010)
+  * Write a list of friends using an unsigned list element. [Solution](http://codepen.io/daldosso/pen/VeJEaR?editors=0010)
   * Write a list of friends using a kind of template. [Solution](http://codepen.io/daldosso/pen/xZoyRa?editors=0010)
 
 * Step 05
