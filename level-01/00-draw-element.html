@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="posts"></div>
+</body>
+<script>
+  var post = { title: 'new post', body: 'This is a message..' };
+  document.querySelector('#posts').innerHTML = '<div>' + '<h2>' + post.title + '</h2>' + '<p>' + post.body + '</p>' + '</div>';
+</script>
+</html>
