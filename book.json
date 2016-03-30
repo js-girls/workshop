@@ -1,15 +1,16 @@
 {
   "gitbook": "2.5.x",
   "structure": {
+    "readme": "about.md",
     "summary": "/docs/README.md"
   },
   "plugins": ["github", "prism", "-highlight", "edit-link"],
   "pluginsConfig": {
     "github": {
-      "url": "https://github.com/js-girls/awesome-tasks/"
+      "url": "https://github.com/js-girls/workshop/"
     },
     "edit-link": {
-      "base": "https://github.com/js-girls/awesome-tasks/master",
+      "base": "https://github.com/js-girls/workshop/master",
       "label": "Edit This Page"
     }
   }
