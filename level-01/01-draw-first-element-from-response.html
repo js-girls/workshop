@@ -4,6 +4,7 @@
 <head>
   <title></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="utils/utils.js"></script>
 </head>
 
 <body>
@@ -25,12 +26,12 @@
       '</div>';
   }
 
-  fetch('http://jsonplaceholder.typicode.com/posts')
+  fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
     .then(function(response) {
       return response.json();
     })
     .then(function(posts) {
-      var postToAdd = posts[0];
+      var postToAdd = toArray(posts)[0];
       drawElement(postToAdd);
     });
 
