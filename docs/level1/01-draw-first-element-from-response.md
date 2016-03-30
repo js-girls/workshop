@@ -1,4 +1,4 @@
-## Step 2
+## Step 1
 
 ```javascript
 fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
