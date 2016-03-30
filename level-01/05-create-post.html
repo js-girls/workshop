@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script type="text/javascript" src="utils/utils.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="posts"></div>
+    <hr />
+    <form class="form-horizontal" id="post-form">
+      <div class="form-group">
+        <label for="post-title" class="control-label">Post Title</label>
+        <input type="text" class="form-control" id="post-title" placeholder="A new post" />
+      </div>
+      <div class="form-group">
+        <label for="post-body" class="control-label">Post Content</label>
+        <textarea type="text" class="form-control" id="post-body" placeholder="A new Body"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Post</button>
+    </form>
+  </div>
+</body>
+
+<script>
+  function drawElement(post) {
+    var postContainer = document.querySelector('#posts')
+    postContainer.innerHTML +=
+      '<div class="panel panel-default">' +
+        '<div class="panel-heading">' +
+          post.title +
+        '</div>' +
+        '<div class="panel-body">' +
+          post.body +
+        '</div>' +
+      '</div>';
+  }
+
+  fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(posts) {
+      toArray(posts).forEach(function(postToAdd) {
+        drawElement(postToAdd);
+      });
+    });
+
+  var form = document.querySelector('#post-form');
+  form.onsubmit = function(e) {
+    e.preventDefault();
+
+    var title = document.querySelector('#post-title').value;
+    var body = document.querySelector('#post-body').value;
+
+    createPost(title, body);
+  };
+
+  function createPost(title, body) {
+    var postObject = { title: title, body: body };
+
+    fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
+      method: "POST",
+      body: serialize(postObject)
+    });
+  }
+
+</script>
+</html>
