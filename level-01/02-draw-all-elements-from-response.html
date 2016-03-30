@@ -3,24 +3,37 @@
 
 <head>
   <title></title>
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body>
-  <div id="posts"></div>
+  <div class="container">
+    <div id="posts"></div>
+  <div>
 </body>
 <script>
+  function drawElement(post) {
+    var postContainer = document.querySelector('#posts')
+    postContainer.innerHTML +=
+      '<div class="panel panel-default">' +
+        '<div class="panel-heading">' +
+          post.title +
+        '</div>' +
+        '<div class="panel-body">' +
+          post.body +
+        '</div>' +
+      '</div>';
+  }
+
   fetch('http://jsonplaceholder.typicode.com/posts')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(posts) {
-    var postsHTML = '';
-    posts.forEach(function(post) {
-      postsHTML = postsHTML + '<div>' + '<h2>' + post.title + '</h2>' + '<p>' + post.body + '</p>' + '</div>';
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(posts) {
+      posts.forEach(function(postToAdd) {
+        drawElement(postToAdd);
+      });
     });
-    document.querySelector('#posts').innerHTML = postsHTML;
-  });
+
 </script>
 </html>
