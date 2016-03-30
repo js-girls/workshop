@@ -1,7 +1,7 @@
 # JS Girls workshop
 
-Source code and documentation for the JS Girls workshop
+This repository contains the Source code for the JS Girls workshops.
 
-[Workshop Manual](https://js-girls.gitbooks.io/workshop/content/).
+If you're looking for a step by step documentation, check the [Workshop Manual](https://js-girls.gitbooks.io/workshop/content/).
 
 
