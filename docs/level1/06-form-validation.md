@@ -1,5 +1,26 @@
 ## Step 6
 
+Replace
+```javascript
+form.onsubmit = function(e) {
+  e.preventDefault();
+
+  var title = document.querySelector('#post-title').value;
+  var body = document.querySelector('#post-body').value;
+
+  createPost(title, body);
+};
+
+function createPost(title, body) {
+  var postObject = { title: title, body: body };
+
+  fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
+    method: "POST",
+    body: serialize(postObject)
+  });
+}
+```
+with 
 ```javascript
 form.onsubmit = function(e) {
   e.preventDefault();
@@ -7,7 +28,6 @@ form.onsubmit = function(e) {
   var bodyElement = document.querySelector('#post-body');
   clearValidation(titleElement)
   clearValidation(bodyElement);
-  // i know this is dumb, it's clear though
   if (isDataValid(titleElement.value) && isDataValid(bodyElement.value)) {
     createPost(titleElement, bodyElement);
   } else {
@@ -19,6 +39,10 @@ form.onsubmit = function(e) {
     }
   }
 };
+```
+and modify the `createPost` accordingly
+
+```javascript
 function createPost(titleElement, bodyElement) {
   var postObject = { title: titleElement.value, body: bodyElement.value };
   fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
