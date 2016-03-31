@@ -14,7 +14,7 @@ form.onsubmit = function(e) {
 function createPost(title, body) {
   var postObject = { title: title, body: body };
 
-  fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
+  fetch(FIREBASE_JSON, {
     method: "POST",
     body: serialize(postObject)
   });
@@ -45,7 +45,7 @@ and modify the `createPost` function accordingly
 ```javascript
 function createPost(titleElement, bodyElement) {
   var postObject = { title: titleElement.value, body: bodyElement.value };
-  fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
+  fetch(FIREBASE_JSON, {
     method: "POST",
     body: serialize(postObject)
   });

@@ -39,7 +39,7 @@
       '</div>';
   }
 
-  fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
+  fetch(FIREBASE_JSON)
     .then(function(response) {
       return response.json();
     })

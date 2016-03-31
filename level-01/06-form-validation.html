@@ -39,7 +39,7 @@
       '</div>';
   }
 
-  fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
+  fetch(FIREBASE_JSON)
     .then(function(response) {
       return response.json();
     })
@@ -76,7 +76,7 @@
   function createPost(titleElement, bodyElement) {
     var postObject = { title: titleElement.value, body: bodyElement.value };
 
-    fetch("https://brilliant-inferno-184.firebaseio.com/posts.json", {
+    fetch(FIREBASE_JSON, {
       method: "POST",
       body: serialize(postObject)
     });

@@ -12,7 +12,7 @@ function clearContent() {
 then replace
 
 ```javascript
-fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
+fetch(FIREBASE_JSON)
   .then(function(response) {
     return response.json();
   })
@@ -28,7 +28,7 @@ with
 ```javascript
 function refreshMessages() {
   clearContent();
-  fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
+  fetch(FIREBASE_JSON)
     .then(function(response) {
       return response.json();
     })
