@@ -31,7 +31,7 @@
 
 <script>
   function drawElement(post) {
-    var postContainer = document.querySelector('#posts')
+    var postContainer = document.querySelector('#posts');
     postContainer.innerHTML +=
       '<div class="panel panel-default">' +
         '<div class="panel-heading">' +
@@ -72,7 +72,7 @@
     var titleElement = document.querySelector('#post-title');
     var bodyElement = document.querySelector('#post-body');
 
-    clearValidation(titleElement)
+    clearValidation(titleElement);
     clearValidation(bodyElement);
 
     // i know this is dumb, it's clear though
@@ -116,7 +116,7 @@
   var refreshButton = document.querySelector('#refresh-button');
   refreshButton.onclick = function() {
     refreshMessages();
-  }
+  };
 
   setInterval(refreshMessages, 5000);
 
