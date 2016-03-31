@@ -1,13 +1,9 @@
 ## Step 2
 
+Replace the last `then` callback content to print out all the items in the database using `forEach`
+
 ```javascript
-fetch('https://brilliant-inferno-184.firebaseio.com/posts.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(posts) {
-    toArray(posts).forEach(function(postToAdd) {
-      drawElement(postToAdd);
-    });
-  });
+toArray(posts).forEach(function(postToAdd) {
+  drawElement(postToAdd);
+});
 ```
