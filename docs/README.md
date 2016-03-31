@@ -25,3 +25,4 @@
    * [Step 7](/docs/level1/07-refresh-messages.md)
    * [Step 8](/docs/level1/08-refresh-button.md)
    * [Step 9](/docs/level1/09-auto-refresh.md)
+* [Useful Resources](/docs/resources.md)
