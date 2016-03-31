@@ -19,3 +19,49 @@ fetch(FIREBASE_JSON)
     drawElement(postToAdd);
   });
 ```
+
+### What this code do?
+
+This code is pretty dense, it's possibile to explain it by using the following analogy:
+
+_Fetch the box specified in the address, then open it, then take the first thing and draw it_
+
+Now let's analyze it bit by bit (pun intended :) )
+
+*1.1 — the`fetch()` function*
+
+```javascript
+fetch(FIREBASE_JSON)
+```
+
+`fetch()` is a function that accepts some parameters, the first one is always an address, in this particular case `FIREBASE_JSON`.
+
+`FIREBASE_JSON` is a string inside the file `utils/utils.js`, it's the specific address of our json on the database
+
+*1.2 — The first `.then()`*
+```javascript
+  .then(function(response) {
+  return response.json();
+  })
+```
+> This particular bit is a _dirty implementation detail_.
+
+This step it's executed after `fetch()` finishes, hence it's named  `then()`.
+
+To manipulate the `response` we need a __function__ to do it. A function always need a __return__ statement, here we tell to pass the response to the next step in a format that we can use.
+
+*1.2 — The second `.then()`*
+```javascript
+  .then(function(posts) {
+    var postToAdd = toArray(posts)[0];
+    drawElement(postToAdd);
+  });
+```
+The first line inside the function is a variable assignment, here we transform the __posts__ from an _object_ to an _array_, for convenience, and take the __first__ element, programmers starts to count from 0
+
+The second line is the same function that we used in the previous step.
+
+**What we just did:**
+  * We used `fetch()` to retrieve the json at this address: `FIREBASE_JSON`
+  * We manipulated the `response` of `fetch()`, using `then()`, in something that we can use
+  * We isolated the first post and displayed it in the page using `drawElement()`
