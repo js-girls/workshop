@@ -40,7 +40,7 @@ form.onsubmit = function(e) {
   }
 };
 ```
-and modify the `createPost` accordingly
+and modify the `createPost` function accordingly
 
 ```javascript
 function createPost(titleElement, bodyElement) {
