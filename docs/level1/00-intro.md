@@ -7,6 +7,14 @@ This walk-through will guide you through the development of the app.
 We will be introducing new concepts on each step so make sure you understand what's going on before going further!
 If you have any doubts, please ask your coach for help.
 
+## Setup your Firebase
+You need to create a new app on [Firebase](https://www.firebase.com/) (the Free Plan is enough) and you need to configure it.
+Here a configuration example:
+
+```
+//TODO
+```
+
 ## Key concepts
 
 During the workshop we will be covering the following concepts:
