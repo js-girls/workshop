@@ -17,5 +17,22 @@ After `div#posts` add
 </form>
 ```
 
+### What does this code do?
+
+We are adding a __form__ to let the user write and post a new message.  
+
+A form is a powerful tool that can be used from a user to insert or compile information and to interact with our user interface.
+Once a form is submitted, the informations can be processed by our server.
+
+Usually an __HTML form__ contains other control element like _input_  or _textarea_ that can used to insert any kind of text.
+
+
+> [What is a ```<form>```?](https://developer.mozilla.org/it/docs/Web/HTML/Element/form)
+
+**What we just did:**
+
+* We used a __form__ to let our users write and post new messages.
+* Form implements some css classes from [Boostrap](http://getbootstrap.com/) to appear more pleasant!
+
 
 
