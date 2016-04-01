@@ -21,8 +21,8 @@ After `div#posts` add
 
 We are adding a __form__ to let the user write and post a new message.  
 
-A form is a powerful tool that can be used from a user to insert or compile information and to interact with our user interface.
-Once a form is submitted, the informations can be processed by our server.
+A form is a powerful tool that allows users to interact with the website interface through its components (such as text areas, option fields and so on).
+Once a form is submitted, its content is sent to a server where it can processed.
 
 Usually an __HTML form__ contains other control element like _input_  or _textarea_ that can used to insert any kind of text.
 
