@@ -1,7 +1,7 @@
 ## Step 2
 
 Replace the content of the last `then` callback to print out all the items we have.
-We do this with the the help of the `forEach` funciton
+We do this with the the help of the `forEach` function
 
 ```javascript
 toArray(posts).forEach(function(postToAdd) {
