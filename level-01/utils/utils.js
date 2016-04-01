@@ -1,4 +1,4 @@
-var FIREBASE_JSON = 'https://brilliant-inferno-184.firebaseio.com/posts.json';
+var FIREBASE_JSON = 'https://jsgirls-level1.firebaseio.com/posts.json';
 
 function toArray(obj) { return Object.keys(obj).map(function (key) {return obj[key]}) }
 
