@@ -12,7 +12,7 @@ You need to create a new app on [Firebase](https://www.firebase.com/) (the Free 
 Here a configuration example:
 
 ```
-//TODO
+// TODO
 ```
 
 ## Key concepts
@@ -23,10 +23,11 @@ During the workshop we will be covering the following concepts:
   * Base values: `String`, `Number`, `Boolean`, undefined values
   * Variables and functions
   * Compound values: `Array` and `Object`
-  * Language Structure: `if`
-  * Array methods (`forEach`, `filter`, `push`)
-  * String methods (`trim`, `replace`)
+  * Language Structure: `if`, `return`
+  * Global methods: `setInterval`
+  * Array methods: `forEach`
+  * HTTP-related methods: `fetch`
 
 ### The DOM
-  * `Element` and some of its properties and methods (`querySelector`, `innerHTML`, `previousElementSibling`, `dataset`)
+  * `Element` and some of its properties and methods (`querySelector`, `innerHTML`)
   * The events and the event object main properties (`target`, `preventDefault`)
