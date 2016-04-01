@@ -1,4 +1,10 @@
 ## Step 7
+
+### Exercises
+* Add a button to show the removed friends. [Solution](http://codepen.io/daldosso/pen/yedQjw?editors=0011)
+* Insert an input to ask at the user a new email to add. [Solution](http://codepen.io/daldosso/pen/gPNyqy?editors=0011)
+
+---
 ### Adding filters and bulk actions
 
 Now we want to add some filters to show all, only active or only completed tasks.
