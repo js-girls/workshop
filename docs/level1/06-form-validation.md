@@ -3,14 +3,16 @@
 ### Validating new posts.
 We learnt how to create new posts.
 Now we may want to add some validation rules for them.
-You do not want to get empty posts or in general very short ones.
-We're going to declare that a post is **valid** if it's longer than 4 characters, for example.
+You do not want to get empty posts or very short ones.
+
+We're going to declare that a post body or a post title are **valid** if they're longer than 4 characters, for example.
 
 Also, we want to show some kind of warning when a user tries to create a post that does not pass our super cool validation rule.
 
 We will show that something is wrong by changing the css class of the input that do not pass our validation.
 
-Replace
+Replace:
+
 ```javascript
 form.onsubmit = function(e) {
   e.preventDefault();
@@ -53,7 +55,7 @@ form.onsubmit = function(e) {
 
 ### What have we done here?
 
-Well first we cleared any possible previous *warning sign* by calling `clearValidation` on our input elements.
+Well first we're clearing any possible *warning sign* that might be shown by calling `clearValidation` on our input elements.
 
 ```javascript
 function clearValidation(element) {
