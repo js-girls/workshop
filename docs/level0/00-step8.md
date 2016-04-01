@@ -1,4 +1,10 @@
 ## Step 8
+
+### Exercises
+* Show the number of active and removed friends. [Solution](http://codepen.io/daldosso/pen/QyXJeo?editors=1001)
+* Starting from the new email exercise, check that the new email is not empty, use an alert (I know it's very old school). [Solution](http://codepen.io/daldosso/pen/yedrWV?editors=0011)
+
+---
 ### Updating counters
 
 The last thing we’re going to do is adding some counters next to our filters: we want to show how many task we have in total, how many of them are completed and how many are not.
