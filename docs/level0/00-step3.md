@@ -1,4 +1,10 @@
 ## Step 3
+
+### Exercises
+* Try to use an "if", as you wish.  [Solution](http://codepen.io/daldosso/pen/ZQNOYN?editors=0011)
+* Try to use an "if", reading a user input.  [Solution](http://codepen.io/daldosso/pen/gPJMPo?editors=1011)
+ 
+---
 ### Adding new items
 
 Time to ask input to the user and add other items to our list!
