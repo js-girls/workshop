@@ -22,9 +22,9 @@ fetch(FIREBASE_JSON)
 
 ### What this code do?
 
-This code is pretty dense; it is possible to explain it by using the following analogy:
+This code fragment looks pretty dense; we can phrase it as follows:
 
-_Fetch the box specified in the address, then open it, then take the first thing and draw it_
+_Retrieve the information at the address, prepare them for reading, take the first information piece and draw it_
 
 Now let's analyze it bit by bit (pun intended :) )
 
@@ -44,11 +44,11 @@ fetch(FIREBASE_JSON)
     return response.json();
   })
 ```
-> This particular bit is a _dirty implementation detail_.
+> This is a _dirty implementation detail_.
 
-This step it's executed after `fetch()` finishes, hence it's named  `then()`.
+This step is executed as soon as `fetch()` completes, hence it's named  `then()`.
 
-To manipulate the `response` we need a __function__ to do it. A function always need a __return__ statement, here we tell to pass the response to the next step in a format that we can use.
+We can manipulate the `response` with a __function__. A function always need a __return__ statement, here we instrument the function to pass the response to the next step in some handy (json) format.
 
 *1.2 — The second `.then()`*
 ```javascript
@@ -57,9 +57,9 @@ To manipulate the `response` we need a __function__ to do it. A function always 
     drawElement(postToAdd);
   });
 ```
-The first line inside the function is a variable assignment, here we transform the __posts__ from an _object_ to an _array_, for convenience, and take the __first__ element, programmers starts to count from 0
+The first line inside the function is a variable assignment, here we transform the __posts__ from an _object_ to an _array_, for convenience, and we take the __first__ element (please note that the first element has index `0`)
 
-The second line is the same function that we used in the previous step.
+In the second line we can find the same function that we used in the previous step.
 
 **What we just did:**
   * We used `fetch()` to retrieve the json at this address: `FIREBASE_JSON`
