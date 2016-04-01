@@ -20,7 +20,7 @@ fetch(FIREBASE_JSON)
   });
 ```
 
-### What this code do?
+### What does this code do?
 
 This code fragment looks pretty dense; we can phrase it as follows:
 
