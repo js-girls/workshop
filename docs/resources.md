@@ -6,4 +6,4 @@
 
 ## Online Courses
 - [Code School](https://www.codeschool.com/learn/javascript)
-- [CodeAccademy](https://www.codecademy.com/learn/javascript)
+- [Codecademy](https://www.codecademy.com/learn/javascript)
