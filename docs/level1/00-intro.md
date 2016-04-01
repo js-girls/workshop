@@ -9,22 +9,10 @@ If you have any doubts, please ask your coach for help.
 
 ## Setup your Firebase
 You need to create a new app on [Firebase](https://www.firebase.com/) (the Free Plan is enough) and you need to configure it.
-### Firebase rules
+Here a configuration example:
 
 ```
-{
- "rules": {
-  ".read": true,
-  ".write": true,
-  "posts": {
-    "$post": {
-    ".validate": "newData.hasChildren(['title', 'body']) && newData.child('title').isString() && newData.child('body').isString() && newData.child('title').val().length > 1 && newData.child('body').val().length > 1",
-    ".read": true,
-    ".write": true
-    }
-  }
- }
-}
+// TODO
 ```
 
 ## Key concepts
@@ -67,10 +55,12 @@ More specifically the api we will be using go by the name of [fetch](https://dev
 
 **fetch** is an easy api. You can:
   * create your request for your remote resource just like this: `fetch(MY_REMOTE_RESOURCE)`
-  * you can then work on the response by defining the usual so-called *callback* function. It'll look like this:
-  ```javascript
-  fetch('flowers.jpg')
-    .then(function(response) {
-      // do something with your response object
-    })  
-  ```
+  * you can then work on the response by defining the usual so-called *callback* function and giving it to the `then` method
+
+It'll look like this:
+```javascript
+fetch('http://some_remote_url')
+  .then(function(response) {
+    // do something with your response object
+  })  
+```
