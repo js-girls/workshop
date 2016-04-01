@@ -1,6 +1,7 @@
 ## Step 2
 
-Replace the last `then` callback content to print out all the items in the database using `forEach`
+Replace the content of the last `then` callback to print out all the items we have.
+We do this with the the help of the `forEach` function
 
 ```javascript
 toArray(posts).forEach(function(postToAdd) {
@@ -10,7 +11,7 @@ toArray(posts).forEach(function(postToAdd) {
 
 ### What this code do?
 
-Now We are using the _array_ created with `toArray(posts)` function to draw all the items of the list instead of only one.
+Now we use the _array_ returned by the `toArray(posts)` invocation to draw all the items of the list.
 
 > [forEach](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
