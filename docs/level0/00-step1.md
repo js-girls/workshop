@@ -1,4 +1,10 @@
 ## Step 1
+
+### Exercises
+* Write a greeting message inside a `div` element. [Solution](http://codepen.io/daldosso/pen/QyVmzV)
+* Write something in a `li` element. [Solution](http://codepen.io/daldosso/pen/jWedqO)
+
+---
 ### From basic HTML markup and styling to a dynamic list of tasks
 
 We will start with a new HTML file called, `index.html`. We will use it as the skeleton of our little app. This is what it will look like:
