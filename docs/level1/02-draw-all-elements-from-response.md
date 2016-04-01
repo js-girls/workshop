@@ -16,7 +16,7 @@ Now We are using the _array_ created with `toArray(posts)` function to draw all 
 
 forEach is a _method_ that can be called on an _array_ and that executes the provided __function__ once for each element of the array.
 
-Paramenters of the provided __function__ are:
+Parameters of the provided __function__ are:
 
 * The current element __value__ that is processed in the array.
 * The current element __index__ of the array.
@@ -33,7 +33,7 @@ var arr = ['a', 'b', 'c', 'd'];
 We can write:
 
 ```js
-arr.forEach(function(index, value) {
+arr.forEach(function(value, index) {
 	console.log(index, value);
 });
 
