@@ -1,4 +1,13 @@
 ## Step 2
+
+### Exercises
+* Create an array of your friend's emails. [Solution](http://codepen.io/daldosso/pen/OMBdRq)
+* Print the emails list. (use the console). [Solution](http://codepen.io/daldosso/pen/wMYNoL?editors=1111)
+* Print the emails list. (use a div). [Solution](http://codepen.io/daldosso/pen/VeEgPd?editors=1111)
+* Print the emails list using forEach. [Solution](http://codepen.io/daldosso/pen/EPdrWX?editors=1111)
+
+---
+
 ### All the tasks from JavaScript
 
 Now we know how to use JavaScript to modify an element’s `innerHTML`.
