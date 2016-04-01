@@ -6,7 +6,7 @@ Add the utility library
 <script type="text/javascript" src="utils/utils.js"></script>
 ```
 
-Remove the static object `postToAdd` with the actual ajax call.
+Remove the static object `postToAdd` with an actual [ajax](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started) call.
 > note that we will print only the first item
 
 ```javascript
@@ -22,7 +22,7 @@ fetch(FIREBASE_JSON)
 
 ### What this code do?
 
-This code is pretty dense, it's possibile to explain it by using the following analogy:
+This code is pretty dense; it is possible to explain it by using the following analogy:
 
 _Fetch the box specified in the address, then open it, then take the first thing and draw it_
 
@@ -41,7 +41,7 @@ fetch(FIREBASE_JSON)
 *1.2 — The first `.then()`*
 ```javascript
   .then(function(response) {
-  return response.json();
+    return response.json();
   })
 ```
 > This particular bit is a _dirty implementation detail_.

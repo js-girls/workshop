@@ -2,9 +2,9 @@
 
 **A Facebook-like timeline**
 
-This walk-through will guide you through the development of the app.
+This tutorial will guide you through the development of the app.
 
-We will be introducing new concepts on each step so make sure you understand what's going on before going further!
+We will be introducing new concepts on each step, so make sure you understand what's going on before going further!
 If you have any doubts, please ask your coach for help.
 
 ## Setup your Firebase

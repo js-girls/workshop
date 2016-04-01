@@ -36,7 +36,7 @@ Here is the code that we will start with:
 </html>
 ```
 
-Let's go through its most relevant parts to understand what it does.
+Let's go through the most relevant parts to understand what it does.
 
 *0.1 — The Doctype*
 ```html
@@ -72,7 +72,7 @@ The body is the root of our application's visible content.
 
 The element ```<div id="posts">``` is where we will put all the messages. It is empty because the messages will be created dynamically using Javascript!
 
-The posts container is wrapped by ```<div class="container">```. This div acts as a container for other elements that we will add in the future, and helps to better style and position its contents. ```container``` is a class used by Bootstrap.
+The posts container is wrapped by ```<div class="container">```. This div acts as a container for other elements that we will add in the future, and helps to better style and position its content. ```container``` is a class used by Bootstrap.
 
 > [What is a ```<div>```?](https://developer.mozilla.org/en/docs/Web/HTML/Element/div)
 
