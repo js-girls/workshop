@@ -1,4 +1,9 @@
 ## Step 6
+### Exercises
+* Save your friends list in the localStorage. [Solution](http://codepen.io/daldosso/pen/KVjrQr?editors=0011)
+* Load your friends list from the localStorage (if exists). [Solution](http://codepen.io/daldosso/pen/gPNqwO?editors=0011)
+
+---
 ### Saving and loading our tasks with `localStorage`
 
 Our app has now four basic features:
