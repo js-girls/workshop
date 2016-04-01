@@ -9,10 +9,22 @@ If you have any doubts, please ask your coach for help.
 
 ## Setup your Firebase
 You need to create a new app on [Firebase](https://www.firebase.com/) (the Free Plan is enough) and you need to configure it.
-Here a configuration example:
+### Firebase rules
 
 ```
-// TODO
+{
+ "rules": {
+  ".read": true,
+  ".write": true,
+  "posts": {
+    "$post": {
+    ".validate": "newData.hasChildren(['title', 'body']) && newData.child('title').isString() && newData.child('body').isString() && newData.child('title').val().length > 1 && newData.child('body').val().length > 1",
+    ".read": true,
+    ".write": true
+    }
+  }
+ }
+}
 ```
 
 ## Key concepts
