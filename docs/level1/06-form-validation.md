@@ -51,6 +51,15 @@ form.onsubmit = function(e) {
     }
   }
 };
+
+function createPost(titleElement, bodyElement) {
+  var postObject = { title: titleElement.value, body: bodyElement.value };
+
+  fetch(FIREBASE_JSON, {
+    method: "POST",
+    body: serialize(postObject)
+  });
+}
 ```
 
 ### What have we done here?
