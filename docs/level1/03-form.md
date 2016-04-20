@@ -1,6 +1,6 @@
 ## Step 3
 
-After `div#posts` add 
+After `div#posts` add
 
 ```html
 <hr />
@@ -27,12 +27,9 @@ Once a form is submitted, its content is sent to a server where it can processed
 Usually an __HTML form__ contains other control element like _input_  or _textarea_ that can used to insert any kind of text.
 
 
-> [What is a ```<form>```?](https://developer.mozilla.org/it/docs/Web/HTML/Element/form)
+> [What is a `<form>`?](https://developer.mozilla.org/it/docs/Web/HTML/Element/form)
 
 **What we just did:**
 
 * We used a __form__ to let our users write and post new messages.
 * Form implements some css classes from [Boostrap](http://getbootstrap.com/) to appear more pleasant!
-
-
-

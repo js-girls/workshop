@@ -13,17 +13,17 @@ Copy the following code and paste in the section called "Security and Rules":
 
 ```json
 {
-    "rules": {
-        ".read": true,
-        ".write": true,
-        "posts": {
-          "$post": {
-          ".validate": "newData.hasChildren(['title', 'body']) && newData.child('title').isString() && newData.child('body').isString() && newData.child('title').val().length > 1 && newData.child('body').val().length > 1",
-          ".read": true,
-          ".write": true
-          }
-        }
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "posts": {
+      "$post": {
+      ".validate": "newData.hasChildren(['title', 'body']) && newData.child('title').isString() && newData.child('body').isString() && newData.child('title').val().length > 1 && newData.child('body').val().length > 1",
+      ".read": true,
+      ".write": true
+      }
     }
+  }
 }
 ```
 
