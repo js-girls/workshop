@@ -24,13 +24,13 @@ What we want to persist is our `listItems` array. Since `localStorage` is only c
 
 This can be easily done by turning our array into a JSON string, by using `JSON.stringify()`:
 
-```js
+```javascript
 var listItemsAsString = JSON.stringify(listItems); // freeze!
 ```
 
 and then we can save our string in `localStorage` by simply doing:
 
-```js
+```javascript
 localStorage.listItems = listItemsAsString;
 ```
 
@@ -38,7 +38,7 @@ This will save a string representation of our data on `localStorage`, and this r
 
 When we will need our `listItems` array back, we simply have to call:
 
-```js
+```javascript
 var listItems = JSON.parse(localStorage.listItems); // thaw!
 ```
 
@@ -47,7 +47,7 @@ and we will be able to use our list items again. Now let’s put this at work!
 We have to modify our `updateList()` function in the following way:
 
 *6.1 – the modified `updateList()` function*
-```js
+```javascript
 var updateList = function(items) {
   var listElement = document.querySelector('#task-list');
   listElement.innerHTML = '';
@@ -66,7 +66,7 @@ However this is not enough. When we open the page, we also need to load this dat
 Let’s change this by creating a new function that will try to load data from `localStorage`:
 
 *6.2 – the new `loadList()` function*
-```js
+```javascript
 var loadList = function() {
   if (localStorage.listItems) return JSON.parse(localStorage.listItems);
 
@@ -80,7 +80,7 @@ var loadList = function() {
 
 Now that we have this new function, we can load initial data to our `listItems` array by calling it:
 
-```js
+```javascript
 var listItems = loadList();
 ```
 

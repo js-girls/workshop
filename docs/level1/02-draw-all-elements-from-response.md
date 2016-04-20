@@ -27,13 +27,13 @@ Parameters of the provided __function__ are:
 
 For example, We want to log the content of this array with `forEach`:
 
-```js
+```javascript
 var arr = ['a', 'b', 'c', 'd'];
 ```
 
 We can write:
 
-```js
+```javascript
 arr.forEach(function(value, index) {
 	console.log(index, value);
 });

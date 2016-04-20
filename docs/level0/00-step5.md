@@ -18,7 +18,7 @@ We need to find a new way for representing our task, something that allows us to
 Our task list will now become something like this:
 
 *5.1 – the new `listItem` with objects instead of strings*
-```js
+```javascript
 var listItems = [
   { text: 'Buy coffee',  completed: true  },
   { text: 'Buy milk',    completed: false },
@@ -29,7 +29,7 @@ var listItems = [
 Each task is now an `Object` with two properties: `text` (containing a `String` value) and `completed` (containing a `Boolean` value).
 These properties are accessible via the dot notation:
 
-```js
+```javascript
 var item = { text: 'Example task', completed: true };
 console.log(item.text); // will print 'Example task'
 console.log(item.completed); // will print true
@@ -40,7 +40,7 @@ This is an important change in our app. We are changing the input data and this 
 Let’s modify our functions to be compatible with this new input format.
 
 *5.2 – the new `renderItem()` function*
-```js
+```javascript
 var renderItem = function(item) {
   var template = document.querySelector('#item-template').innerHTML;
   return template.replace('_TEXT_', item.text);
@@ -48,7 +48,7 @@ var renderItem = function(item) {
 ```
 
 *5.3 – the new `createNew()` function*
-```js
+```javascript
 var createNew = function(event) {
   event.preventDefault();
 
@@ -65,7 +65,7 @@ var createNew = function(event) {
 ```
 
 *5.4 – the new `removeItem()` function*
-```js
+```javascript
 var removeItem = function(event) {
   var clickedItemText = event.target.previousElementSibling.innerHTML;
 
@@ -93,7 +93,7 @@ Let’s add an `onclick` attribute to our task `<span>` element inside our templ
 ...and create the corresponding function:
 
 *5.5 – the new `toggleStatus()` function*
-```js
+```javascript
 var toggleStatus = function(event) {
   var clickedItemText = event.target.innerHTML;
 

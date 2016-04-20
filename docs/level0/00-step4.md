@@ -35,7 +35,7 @@ Here our `<li>` element contains two children elements: a `<span>` with some tex
 Let’s take a look at how we are currently rendering the task item inside the `updateList()` function:
 
 *4.3 — The code we’re currently using to render the task item element*
-```js
+```javascript
 listElement.innerHTML += '<li>' + item + '</li>';
 ```
 
@@ -43,14 +43,14 @@ We are doing something very simple to obtain a new task item element; we are con
 As we saw above, now we need something slightly more complex; it's time to move this rendering logic into a new function:
 
 *4.4 — A simple `renderItem()` function*
-```js
+```javascript
 var renderItem = function(itemText) {
   return '<li>' + itemText + '</li>';
 }
 ```
 
 *4.5 — Let’s change the code inside `updateList()` to use the new `renderItem()` function*
-```js
+```javascript
 listElement.innerHTML += renderItem(item);
 ```
 
@@ -83,7 +83,7 @@ Now let’s go back to our `renderItem()` function. What we are going to do now 
 To do this, we will use the `replace()` method available on strings.
 
 *4.7 — `renderItem()` with template*
-```js
+```javascript
 var renderItem = function(itemText) {
   var template = document.querySelector('#item-template').innerHTML;
   return template.replace('_TEXT_', itemText);
@@ -101,7 +101,7 @@ To do this, we will use the array's `filter()` method to update our `listItems`.
 Let’s look at the function code:
 
 *4.8 — `the removeItem()` function*
-```js
+```javascript
 var removeItem = function(event) {
   var clickedItemText = event.target.previousElementSibling.innerHTML;
 

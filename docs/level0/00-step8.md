@@ -14,7 +14,7 @@ To do this, we need a new function that needs to be called each time we call `up
 Let’s create it:
 
 *8.1 – the new `updateCounters()` function*
-```js
+```javascript
 var updateCounters = function() {
   var completedCount = 0;
 
@@ -37,7 +37,7 @@ Finally we will use the `dataset` property of our DOM element to store informati
 Last touch: we need to update our `updateList()` function by adding the `updateCounters()` function call at the end.
 
 *8.1 – the updated `updateList()` function*
-```js
+```javascript
 var updateList = function(items, save) {
   var listElement = document.querySelector('#task-list');
   listElement.innerHTML = '';

@@ -24,7 +24,7 @@ The first thing we need to do is adding some markup for our filter buttons. Let�
 We added a button with an `onclick` handler that will execute a `filterItems()` function. Let’s create that function:
 
 *7.2 – the new `filterItems()` function*
-```js
+```javascript
 var filterItems = function(status) {
   var itemsToShow = [];
 
@@ -52,7 +52,7 @@ We want this to happen when we *modify* our task list (for example adding, delet
 What can we do to avoid this? The solution is to modify our `updateList()` function for accepting a second parameter, that we will call `save`.
 
 *7.3 – the updated `updateList()` function*
-```js
+```javascript
 var updateList = function(items, save) {
   var listElement = document.querySelector('#task-list');
 
@@ -68,7 +68,7 @@ var updateList = function(items, save) {
 
 When we will call the `updateList()` function by passing `true` as second parameter, the last line will be executed, otherwise our tasks will not be saved.
 
-```js
+```javascript
 updateList(listItems, true) // this will save our tasks.
 updateList(listItems) // this will not.
 ```
@@ -89,7 +89,7 @@ We also want to add a button that cleans up all completed tasks. Let’s add the
 The `onclick` handler will call a `clearCompleted()` function. Let’s create it:
 
 *7.4 – the new `clearCompleted()` function*
-```js
+```javascript
 var clearCompleted = function() {
   listItems = listItems.filter(function(item) {
     return !item.completed;

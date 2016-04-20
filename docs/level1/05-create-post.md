@@ -5,19 +5,19 @@ Now that we have collected user's input we are ready to create a new post.
 
 Replace 
 
-```js
+```javascript
 console.log(title, body);
 ```
 
 with
 
-```js
+```javascript
 createPost(title, body);
 ```
 
 and add the `createPost` function
 
-```js
+```javascript
 function createPost(title, body) {
   var postObject = { title: title, body: body };
   fetch(FIREBASE_JSON, {
@@ -55,7 +55,7 @@ First we specify the server address (`FIREBASE_JSON`) as we did in [Step 1](http
 
 Then we pass a _request_ configuration __object__ as the second parameter of the `fetch` function.
 
-```js
+```javascript
 {
   method: "POST",
   body: serialize(postObject)

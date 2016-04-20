@@ -22,7 +22,7 @@ Before our `<ul>` element, let’s add this HTML code:
 We just added a form with an input field and a button to our page. We want to create a new task with the text that the user writes in the input field, and we want this to happen when he submits the form by clicking on the “Add” button or pressing the Enter key; so let’s add a `createNew()` function (after `updateList()`) for capturing what the user just typed!
 
 *3.2 — The `createNew` function*
-```js
+```javascript
 var createNew = function(event) {
   event.preventDefault();
 
@@ -50,14 +50,14 @@ Now our `updateList()` function needs to be updated, because if we will call it 
 This is easily done by adding this line before the `forEach()` call:
 
 *3.3 — Cleaning the previous output*
-```js
+```javascript
 listElement.innerHTML = '';
 ```
 
 Our final result will be:
 
 *3.3 — Updated `updateList()` function*
-```js
+```javascript
 var updateList = function(items) {
   var listElement = document.querySelector('#task-list');
   listElement.innerHTML = '';
