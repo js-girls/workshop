@@ -1,6 +1,6 @@
 # About JS Girls
 
-js-girls is a 1-day workshop for girls who want to learn Javascript, the most commonly used programming language on Earth.
+JS Girls is a one-day workshop with the aim of helping women getting to know the world of JavaScript, the most used programming language in the world.
 
 In 24 hours you will learn the basics of programming and get an introduction to the world of today's Javascript technology. You will build an interactive web interface using Javascript, HTML and CSS.
 
