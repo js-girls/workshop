@@ -7,7 +7,7 @@
 ---
 ### From basic HTML markup and styling to a dynamic list of tasks
 
-We will start with a new HTML file called, `index.html`. We will use it as the skeleton of our little app. This is what it will look like:
+We will start with a new HTML file called `index.html`. We will use it as the skeleton of our little app. This is what it will look like:
 
 *1.1 —`index.html` base markup*
 ```html
