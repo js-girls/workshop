@@ -1,6 +1,6 @@
 ## Level 1
 
-This level is for girls who know the basics of Javascript.
+This level is for people who know the basics of Javascript.
 In this level we'll build a Facebook-like timeline.
 
 * [Intro](00-intro.md)
