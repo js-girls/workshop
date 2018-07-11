@@ -1,6 +1,6 @@
 ## Level 0
 
-This is level is for girls who never wrote a single line of code.
+This is level is for people who never wrote a single line of code.
 
 * [Intro](00-intro.md)
 * [Step 0](00-step0.md)
